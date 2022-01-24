@@ -1,8 +1,12 @@
 # Welcome to 022822-VA-SRE
 
-*Notes and examples covered during lecture will be uploaded here daily.*
+*Notes and examples covered during lecture will be uploaded here daily.  
+The environment setup guide for week 1 and 2 can be found [here](https://github.com/022822-VA-SRE/notes/blob/main/setup/env_guide.md).*
 
 ## Training Calendar
+
+* 02/28
+    * Orientations
 
 ## Additional Resources
 
