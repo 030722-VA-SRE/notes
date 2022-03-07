@@ -1,0 +1,30 @@
+Basic command line
+
+Goal: navigate the file structure using bash
+
+relative path: points to a location in the filesystem based on the current directory
+absolute path: points to a location in the filesystem regardless of the current directory
+
+~: refers to the home directory
+/: refers to the root directory
+	- upmost directory
+..: refers to the parent directory 
+.: refers to the current directory
+
+ls: list the content of a directory
+	-a (flag) to list the hidden items
+		- hidden items are preceded with a ".", ie: .git
+mkdir: create a directory (folder)
+cd: change directory - use tab to autocomplete
+pwd: list the absolute path of the current directory
+touch: to create a file
+cat: displays content
+mv: move element (file/directory)
+	- mv file targetLocation/[new-name if desired]
+rm: delete file
+	-r (to delete a directory with content)
+rmdir: delete directory
+vim/nano: text editors, to create/edit files
+
+more info:
+https://cheat.sh/
