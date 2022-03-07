@@ -75,7 +75,17 @@ After you've run this command, you should then attempt to run one of the first t
 
 > If you are experiencing issues downloading Scoop, just use the Manual method which is outlined further down in this document.
 
-### Step 2: Configure Scoop
+### Step 2: Install Git
+
+Now that you've installed Scoop and added some additional buckets for downloading software, open a new terminal and run the following command in order to install Git:
+
+    scoop install git
+
+After the installation is complete, verify that you have installed Git properly by typing the following in your terminal:
+
+    git --version
+
+### Step 3: Configure Scoop
 
 When installed, Scoop comes with a default bucket titled "main". Since some of the programs we'll install using Scoop aren't contained in this bucket, we'll add some additional buckets before we begin installing our programs.
 
@@ -86,16 +96,6 @@ Open a new terminal and run the following commands (one by one):
     scoop bucket add versions
 
 **Note**: If you receive a warning that says that the bucket you're attempting to add already exists, you don't have to worry as this means that you already have that bucket.
-
-### Step 3: Install Git
-
-Now that you've installed Scoop and added some additional buckets for downloading software, open a new terminal and run the following command in order to install Git:
-
-    scoop install git
-
-After the installation is complete, verify that you have installed Git properly by typing the following in your terminal:
-
-    git --version
 
 ### Step 4: Install Java
 
