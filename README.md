@@ -5,7 +5,7 @@ The environment setup guide for week 1 and 2 can be found [here](https://github.
 
 ## Training Calendar
 
-* 02/28
+* 03/07
     * Orientations
 
 ## Additional Resources
