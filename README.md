@@ -5,6 +5,8 @@ The environment setup guide for week 1 and 2 can be found [here](https://github.
 
 ## Training Calendar
 
+* 03/08
+    * QC Orientation(10am): https://revature.zoom.us/j/96121243699?pwd=djhsQzJiMnp0VUwvcGZLMmNRb1dQQT09
 * 03/07
     * Orientations
 
