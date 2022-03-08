@@ -1,0 +1,80 @@
+Introduction to git
+
+SCM - Software Configuration Management
+	- task of tracking and controlling changes for an application or a suite of application
+	- purpose
+		- identify all items that collectively define the software configuration
+		- manage changes to one or more of these items
+			- what
+			- who
+			- when
+		- to facilitate the construction of different versions of an application
+			- ensure that the software quality is maintained as configuration evolves over time
+
+Things that are tracked by git
+	- source code files
+	- data schema
+	- build specification files
+	- documentation
+
+Git
+	- Distributed Version Control System
+	- industry standard
+	- secure
+	- flexible
+
+Git repository
+	- data source that contains all of the information needed to retain and manage the revisions and history of a project
+		- managed within a .git folder
+Working directory
+	- working area contains project and its file
+Staging area
+	- area between the working directory and the local repository where changes are added before a commit
+Commit
+	- snapshot of the staged changes from a working directory
+
+Git Workflow
+	- create/retrieve repository
+		- git clone - obtains a copy of a remote repository on a local device
+		- git init - initializes a repository locally (creates a .git folder)
+	- add/remove changes to/from the staging area
+		- git add [filename] (git add . => for everything in this directory)
+		- git restore
+	- visualize the state of the repository
+		- git status
+	- create a commit locally
+		- git commit -m "insightful message about the commit"
+	- push commit to remote repository
+		- git push 
+
+Branches
+	- essentially an independent line of development
+	- can take advantage of branching when working on new features or bug fixes as it isolates your work from others
+		- prod vs dev
+			- prod: "bug free"
+			- dev: for new features
+	- git branch
+		- lists the available branches
+	- git checkout
+		- change branches
+		- -b to create a new branch
+
+Git != Github
+	- Github/Gitlab/Gitbucket are websites to host remote repositories
+
+Best practices
+	- commit regularly
+	- provide detailed commit messages
+	- leverage a branching strategy
+	- communicate with your team
+
+Additional material:
+https://www.git-tower.com/blog/git-cheat-sheet
+
+Git basics:
+https://www.youtube.com/watch?v=0fKg7e37bQE
+
+Git team basics:
+https://www.youtube.com/watch?v=oFYyTZwMyAg
+
+
