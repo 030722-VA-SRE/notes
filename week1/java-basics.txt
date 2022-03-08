@@ -1,0 +1,43 @@
+Java
+	- Object based Programming Language (OOP)
+		- multi paradigm language
+			- also supports different programming paradigms such as functional programming
+	- Backed/maintained by Oracle, mature language
+		- updates/maintained
+		- a lot of documentations, tutorials, resources overall
+			- StackOverflow (chances are someone ran into your issue before)
+	- Portable/Platform independent
+		- WORA - write once run anywhere
+		- due to the JVM
+	- Compiled language
+		- compile time error checking
+		- compiles java source code into an intermediary language (bytecode) to be run by the JVM
+	- Support multithreading
+		- run processes concurrently
+	- Automatic garbage collection
+		- no need to manually allocate/deallocate memory
+			- garbage collector
+	- Strictly typed
+
+JDK/JRE/JVM
+	- JDK
+		- Java Development Kit
+			- Provides an environment to develop and execute a Java Program
+			- Contains the compiler, tools for development
+			- Contains the JRE and JVM
+	- JRE
+		- Java Runtime Environment
+			- All that's needed to RUN an application
+			- Contains the JVM
+			- Contains the core libraries for Java
+	- JVM
+		- Java Virtual Machine
+			- Takes the COMPILED code (bytecode) and executes it from the main method
+			- Different OS can have different implementation of the JVM
+
+Compilation process
+	highlevel code (Java Source code) => javac [.java filename] => Bytecode (intermediary language) (.class file)
+Running Java
+	Bytecode (intermediary language) (.class file) => java [.class filename])
+Can pass in arguments:
+	java [.class file name] [args0] [args1] ...
