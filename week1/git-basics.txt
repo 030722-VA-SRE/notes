@@ -68,6 +68,11 @@ Best practices
 	- leverage a branching strategy
 	- communicate with your team
 
+.gitignore
+	- prevents igems from being tracked by git
+		- ie: sensitive information (db credentials), Mac files(DS_Store), ide settings/preferences
+	- https://www.toptal.com/developers/gitignore/api/java,eclipse,maven,macos,intellij
+		- to generate .gitignore files
 Additional material:
 https://www.git-tower.com/blog/git-cheat-sheet
 

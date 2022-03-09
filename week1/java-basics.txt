@@ -41,3 +41,41 @@ Running Java
 	Bytecode (intermediary language) (.class file) => java [.class filename])
 Can pass in arguments:
 	java [.class file name] [args0] [args1] ...
+
+Variables
+	- used to store data
+	- 2 types of variables: primitives and reference types
+	- primitives - are stored in the stack
+		- whole numbers: byte, short, int, long
+		- floating points: float, double
+		- characters: char
+		- boolean
+	- reference types - reference objects stored in the heap
+		- Objects
+		- Wrapper classes
+			- way to treat primitives like objects
+				- has methods available to interacte with the value
+			- AutoBoxing
+				- automatic conversion of a primitive to its wrapper class
+			- AutoUnboxing
+				- automatic conversion of a wrapper class into its primitive
+
+Class
+	- Blueprints for object, they define states and behaviors
+		- states refer to the fields
+		- behaviors refer to methods
+	- objects can be instantiated using the new keyword which calls the constructor
+	- Constructors
+		- type of method that has no return types and that are used to create an instance of a class (object)
+		- called using the new keyword
+			- responsible for allocating memory for the new object through a constructor
+			- typically allows you to initialize variables for the created object
+		- no-args constructor: constructor with no parameters
+			- public Driver () {}
+		- parameterized/overloaded constructors: constructors with parameters
+			- public Driver (String s, ...) {}
+		- default constructor
+			- no-args constructor provided by the compiler IF NO OTHER CONSTRUCTOR IS PRESENT
+		- constructor chaining
+			- calling a different constructor of the same class using 
+				- this(), this(args...)
