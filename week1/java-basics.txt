@@ -79,3 +79,117 @@ Class
 		- constructor chaining
 			- calling a different constructor of the same class using 
 				- this(), this(args...)
+Methods
+	- reusable block of codes that can take in arguments and return something
+		- void: no return type
+		- return [someReturn];
+	- main method
+		- entrypoint to the JVM
+		- public static void main(String[] args) => method signature
+		- calling other methods
+
+Scopes of a variable
+	- DO NOT CONFUSE THIS WITH ACCESS MODIFIERS
+	- lifetime of a variable
+	- static/class scope
+		- variables live throughout the lifetime of the application
+	- instance/object scope
+		- variable live throughout the lifetime of that object
+		- begins once an object is instantiated and ends when the object is garbage collected
+	- method scope
+		- variable lives within the scope of a method
+		- includes parameters and variables declared within that method
+	- loop/block scope
+		- variable lives only during the execution of a block
+			- within a loop or a conditional statement
+
+Java Memory Management
+	- Stack
+		- Datastructure that follows a LIFO pattern (Last In First Out)
+		- holds primitives and reference variables
+		- once the scope of the method is over, the variable "pop" off
+			- naturally managed
+	- Heap
+		- Object storage
+		- almost anything that is not a primitive/ ref type is an object
+		- String Pool
+			- for String literals
+				- String s = "someValue";
+		- Managed by the Garbage collector
+	- Java is a pass by value language, means that passing a variable into a method uses the value of the variable rather than the variable itself
+
+Garbage Collection
+	- free up memory/resources once they're no longer referenced
+	- Garbage collector is a daemon thread
+		- thread running in the background
+		- removes objects without references in the heap
+	- finalize() - last method that called upon by an object before it's garbage collected
+		- people don't really use this anymore
+	- Garbage collection cannot be forced, it can only be suggested using System.gc(); 
+
+Packages
+	- folder/directory
+		- structure
+	- resolve naming conflicts
+	- define access to classes/members
+		- access modifiers
+	- group items based on what they do/logical structure
+	- naming convention
+		- reverse url format/reverse domain name
+		- com.revature (all lower case)
+	- packages are organized based on the problem that they solve
+		- separation of concerns
+			- a package that holds models/entities
+			- a package that holds all classes related to data access/storage/interacting with a database
+			- a package that holds all classes related to business logic (services)
+			- a package that holds all classes related to interacting with the web (web, controllers)
+
+OOP
+	- Programming paradigm which relies on classes and objects to model real world objects
+		- 4 Pillars of OOP
+			- Encapsulation
+			- Inheritance
+			- Polymorphism
+			- Abstraction
+
+Class
+	- Blueprint/Template for an object, defines their states and behaviors
+	- Members of a class
+		- variables and methods of that class
+			- Object/Instance specific
+				- instance variable
+				- instance method
+			- Class/Static, members that don't belong to a specific object
+				- static variables
+				- static methods
+
+Object
+	- Instance of a class
+		- can be created using the "new" keyword
+			- calls the constructor of a class
+	- Beware the Object class
+
+Encapsulation
+	- refers to the ability for an object to protect its states and behavior
+	- can achieve by defining the accessibility of class members using access modifiers
+		- set variables to private
+	- setters/getters methods to interact with the property
+
+Access modifiers
+	- specify which classes have access to an entity (class, member of a class...)
+		- public - least restrictive, all of the classes within the application have access
+		- protected - all of the classes within the same package and all of the subclasses/children have access
+		- "default" - all of the classes within the same package have access, default keyword is something else, therefore default is just the absence of an access modifier
+		- private - only the class itself has access
+
+Inheritance
+	- when subclasses/children classes adopt states/behaviors from a super/parent class
+	- deriving classes allows for code reusability
+		- DRY principle
+	- keyword: extends
+	- by default every class extends the object class
+	- as a result all of the classes inherit methods from the object class
+		- toString(), equals(), hashcode()
+			- they're not always too useful by themselves...
+	- by default the first line of every constructor is a call to the parent's constructor: super()
+	- Java does not support multiple inheritance

@@ -153,6 +153,31 @@ public class Driver {
 		for(int ij = 0; ij < 10; ij++) {
 			System.out.println(ij);
 		}
+		
+		/*
+		 * Arrays
+		 * 	- linear contiguous containers of a same datatype
+		 * 		- can be either for primitives or reference types
+		 * 		- contiguous blocks in memory
+		 * 			- fixed size
+		 * 	- Elements in an array can accessed using indexes
+		 * 		- starts at 0
+		 */
+		
+		int[] intArr = new int[5]; // initializing an array of size 5
+		int []intArr1 = new int[5];
+		int intArr2[] = new int[5];
+		
+		int[] intArr3 = {0, 1, 2, 3};
+		
+		for(int j = 0; j < intArr.length; j++) {
+			System.out.println(intArr[j]);
+		}
+		
+		// enhanced for loop/for each loop returns the element itself rather than the index
+		for(int in : intArr3) {
+			System.out.println(in);
+		}
 	}
 	
 	/*
