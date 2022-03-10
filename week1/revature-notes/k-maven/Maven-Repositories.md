@@ -1,0 +1,5 @@
+## Maven Repositories
+
+When Maven "builds" a Java project, it must first search for any dependencies declared in the `pom.xml` file. Maven dependencies are stored both locally and in a central repository. The local repository is in the `$HOME/.m2/repository` folder (can be changed in `$MAVEN_HOME/conf/settings.xml`), while the central repository is accessible at https://mvnrepository.com. If Maven cannot find a given dependency locally, it searches the central repository for the artifact and then downloads it to the local repository.
+
+A Maven "build" means to take the project source code, along with any dependencies like libraries or frameworks, compile it, and bundle it all together into an artifact - this could be a `.war` file, a `.jar` file, or an `.ear` file. WAR stands for "web archive", JAR stands for "Java archive", and EAR stands for "Enterprise Application archive". This artifact can then be either directly run or deployed onto a web container (in the case of a web application).

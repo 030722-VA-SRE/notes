@@ -1,0 +1,104 @@
+# Questions
+## Java Basics
+1.	What is Java? / Explain some features of Java
+2.	What is JRE / JDK / JVM?
+3.	What is the difference between an object and a class?
+4.	What is the root class from which every class extends?
+5.	What are the primitive data types in Java?
+6.	Where are Strings stored?
+7.	Explain stack vs heap
+	1. Are variable references stored on the stack or heap? What about the objects they refer to?
+8.	What are annotations?
+9.	Why are strings immutable in java? How would you make your own objects immutable?
+10.	What is the difference between String, StringBuilder, and StringBuffer?
+11.	What are the different variable scopes in Java?
+12.	What are the access modifiers in Java? Explain them.
+13.	What are the non-access modifiers in Java?
+14.	What is the difference between static and final variables?
+15.	What are the default values for all data types in Java?
+16.	What makes a class immutable?
+17.	What data types are supported in switch statements?
+18.	How to pass multiple values with a single parameter into a method?
+19.	What methods are available in the Object class?
+20.	What is the difference between == and .equals()?
+21.	What is an enhanced for loop?
+22.	What are the 3 usages of “super” keyword?
+23.	What is the first line of any constructor?
+24.	How would you perform constructor chaining?
+25.	What happens if you don’t define a constructor for a class? Can you still instantiate it?
+
+## OOP
+1.	What are the 4 pillars of OOP? Explain each and give examples of you implement them in Java code
+2.	What is the difference between an abstract class and an interface?
+3.	Can abstract classes have concrete methods? Can concrete (non-abstract) classes have abstract methods?
+4.	Can static methods access instance variables? Can non-static methods access static variables?
+5.	What are the implicit modifiers for interface variables? methods?
+6.	What is the difference between method overloading and overriding? What are the rules for changing the method signature of overloaded methods?
+7.	What are covariant return types? What rules apply to return types for overridden methods?
+8.	When do you use extends or implements keywords?
+
+## Exceptions
+1.	What is the difference between final, .finalize(), and finally?
+2.	Explain throw vs throws vs Throwable
+3.	Do you need a catch block? Can you have more than 1? Is there an order to follow?
+4.	What is base class of all exceptions? What interface do they all implement?
+5.	List some checked and unchecked exceptions?
+6.	Multi-catch block - can you catch more than one exception in a single catch block?
+
+## JUnit
+1.	What is JUnit?
+2.	What is TDD?
+3.	What are the annotations in JUnit? Order of execution?
+4.	Give an example of a test case
+5.	How would you prevent a test from being run without commenting it out?
+6. 	How would you test that a specific exception is thrown?
+
+## Maven
+1.	What is Maven?
+2.	What is the default Maven build lifecycle?
+3.	Where / when does Maven retrieve dependencies from? Where are they stored locally?
+4.	What is the POM and what is the pom.xml?
+5.	What defines Maven project coordinates?
+
+## Git
+- What is version control?
+- What is the difference between git and GitHub?
+- List the git commands you know and what they do
+- How would you prevent a file from being tracked by git?
+- What is a branch? What are some common branching strategies?
+- What is a merge conflict? How do you prevent these and resolve if it happens?
+- What is a GitHub pull request?
+- What is the git workflow for editing code and saving changes?
+- What is a commit?
+- How would you go back in your commit history if you make a mistake?
+- What is a Github issue?
+
+Log4j
+1.	What are the advantages to using a logging library?
+2.	What is log4j?
+3.	What are the logging levels of log4j?
+
+Javalin
+1.	What is Javalin?
+2.	What is Jetty? What is the relationship between Jetty and Javalin?
+3.	What are Servlets and how are they related to Javalin?
+4.	What is Object Mapping? What is Jackson?
+	- How does Javalin convert JSON data to Java objects? And the other way around?
+5.	How do you set up a Javalin application?
+6.	What are Http Handlers in Javalin?
+	1. What are different ways to set them up?
+7.	What are Handler groups?
+8.	What is the Context object? What is it an abstraction of?
+	- How would you handle path params?
+	- How would you handle query params?
+	- How would you retrieve the request body
+	- How would you map an endpoint?
+	- How would you return infomation in the response body?
+	- How would you set a status code for a response?
+
+## Unix
+- Where are the root and home directories located? How to get to each?
+- What Linux command would you use to:
+	- Navigate your file hierarchy on the command line?
+	- List files? What about hidden files?
+	- Edit a file from the terminal

@@ -1,0 +1,7 @@
+#### JVM, JRE, JDK
+
+When we say Java is platform independent, we mean that Java programs are not constrained to a single operating system - Java code can be run on many different systems. Another way of saying this is that with Java, we can **write once, run anywhere** (WORA). Portability is possible because Java code is compiled to **bytecode** and runs on a **JVM - or Java Virtual Machine**. The JVM is specific to the operating system - there is a JVM for Windows, one for Mac, one for Linux, etc. The JVM reads the compiled Java bytecode and translates it to machine code to be executed on the given system. Actually, in order to run Java code, you also need a **JRE - Java Runtime Environment**, which contains all the runtime libraries that your code will be calling and using. The JRE contains the JVM within it, so if you want to run a Java program, all you need to install is the JRE.
+
+But how do we actually compile the Java code that we write down to bytecode that the JVM will understand? For that, you need a **JDK - Java Development Kit**, which provides developer tools like a compiler, debugger, documentation tools (`javadoc`), and other command-line utilities. The JDK also has a JRE inside of it, so if you install a JDK you can compile your Java code as well as execute it. 
+
+So, to recap - the JDK contains tools for Java development as well as a JRE, which contains the built-in Java libraries as well as a JVM, which actually executes your Java bytecode and runs it on the specific operating system it is installed upon.
