@@ -1,0 +1,49 @@
+OOP
+	- Programming paradigm which relies on classes and objects to model real world objects
+		- 4 Pillars of OOP
+			- Encapsulation
+			- Inheritance
+			- Polymorphism
+			- Abstraction
+
+Class
+	- Blueprint/Template for an object, defines their states and behaviors
+	- Members of a class
+		- variables and methods of that class
+			- Object/Instance specific
+				- instance variable
+				- instance method
+			- Class/Static, members that don't belong to a specific object
+				- static variables
+				- static methods
+
+Object
+	- Instance of a class
+		- can be created using the "new" keyword
+			- calls the constructor of a class
+	- Beware the Object class
+
+Encapsulation
+	- refers to the ability for an object to protect its states and behavior
+	- can achieve by defining the accessibility of class members using access modifiers
+		- set variables to private
+	- setters/getters methods to interact with the property
+
+Access modifiers
+	- specify which classes have access to an entity (class, member of a class...)
+		- public - least restrictive, all of the classes within the application have access
+		- protected - all of the classes within the same package and all of the subclasses/children have access
+		- "default" - all of the classes within the same package have access, default keyword is something else, therefore default is just the absence of an access modifier
+		- private - only the class itself has access
+
+Inheritance
+	- when subclasses/children classes adopt states/behaviors from a super/parent class
+	- deriving classes allows for code reusability
+		- DRY principle
+	- keyword: extends
+	- by default every class extends the object class
+	- as a result all of the classes inherit methods from the object class
+		- toString(), equals(), hashcode()
+			- they're not always too useful by themselves...
+	- by default the first line of every constructor is a call to the parent's constructor: super()
+	- Java does not support multiple inheritance
