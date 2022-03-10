@@ -1,0 +1,32 @@
+Testing
+	- process of checking if an application is working as intended
+	- regression testing
+		- making sure that new features added to an application do not break previously written code
+			- making sure tests still pass
+	- positive testing: making sure that the application handles the correct input properly
+	- negative testing: making sure that the application handles an incorrect input correctly
+
+Unit Testing
+	- refers to testing an individual unit of functionality
+		- methods in the case of java
+	- at the bottom of testing pyramid but also the most abundant type of testing
+
+TDD (Test driven development)
+	- the process of writing your tests to fail first to establish the functionality of your application, THEN writing the code to pass your tests
+		- a way to approach this
+			- write interfaces/empty methods to establish the functionality desired
+			- write your tests
+			- write your code/implement those methods to pass the test
+		- benefits
+			- planning/establishing the desired behavior early on
+			- easily finding where the issue arise since the tests are already written
+
+JUnit
+	- JUnit is a Java Unit testing framework
+		- we will be using JUnit5
+	- include a lot of annotations and classes in order to write automated unit tests
+	- it leverages "assert" methods to check for a particular condition to determine if a test passes
+		- a test passes if the result obtained is the result desired
+			- an exception being thrown might be the desired outcome
+	- documentation:
+		- https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html

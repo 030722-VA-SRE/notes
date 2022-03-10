@@ -1,0 +1,21 @@
+Non-access modifier
+	- abstract
+	- static
+		- static members do not require an instance and are initialized when the class is loaded into memory
+		- in front of a field
+			- associated with the class rather than an instance
+			- can be referred to using the classname
+			- shared and available in all instances (objects)
+		- in front of method
+			- associated with the class rather than an instance
+			- can be invoked using the class name
+	- default
+		- introduced in Java 8
+		- allows to provide a default implementation to an interface
+	- final
+		- in front of a class
+			- prevents the class from being extended, cannot be inherited
+		- in front of a field
+			- a variable cannot be REassigned once initialized
+		- in front of a method
+			- method cannot be overriden by a child class

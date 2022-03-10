@@ -12,4 +12,9 @@ public class BoringTask extends Task{
 	public void procrasticate() {
 		setDueDate(LocalDate.now().plusDays(1));
 	}
+	
+	@Override
+	public void doTask() {
+		System.out.println("Doing " + getDescription() + " slowly...");
+	}
 }

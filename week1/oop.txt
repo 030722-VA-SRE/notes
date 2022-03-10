@@ -47,3 +47,69 @@ Inheritance
 			- they're not always too useful by themselves...
 	- by default the first line of every constructor is a call to the parent's constructor: super()
 	- Java does not support multiple inheritance
+
+	- this/super
+		- this is a reference to the instance
+		- super is a reference to the parent
+			- ie: super.get../set... , super()
+
+Polymorphism
+	- refers to the ability of objects and methods to adapt their behaviors in different contexts
+	- can occur at compile time or at runtime
+	- method overloading
+		- creating multiple methods in the same class with the same method name but different number and/or types of parameters
+		- compile time/ static polymorphism
+	- method overriding
+		- write a method in a subclass with the same method signature as the parent class but different implementation
+			-ie: overriding toString() from object class
+		- runtime polymorphism
+	- covariance return types
+		- when overriding a method there is an option to change the return type
+			- the new return type has to be a child/subtype of the original type
+	- upcasting/downcasting
+		- upcasting refers to instantiating/assigning a child by declaring its parent return type
+			- restricts the available methods to the methods declared in the parent class
+				- however invokes the child's class implementation
+		- downcasting
+			- refers to instantiating/assinging an object by declaring its child class as the reference
+			- leads to issues
+
+Abstraction
+	- hiding a complex implementation behind a simple interface
+		- using methods without actually knowing how it's implemented
+	- in Java, abstraction is used via the abstract and interface keywords
+		- "abstract"
+			- can be found in front of a class
+				- public abstract class ClassName {}
+				- can no longer instantiate that class
+					- can't create an object of an abstract class
+					- to push users to use more specific CONCRETE (not abstract) classes
+				- can be inherited
+				- can have abstract methods
+					- Concrete classes cannot have abstract methods
+					- Abstract class can have no abstract methods
+			- can be found in front of a method
+				- method without a body
+					- method is left to be implemented later by a subclass
+				- cannot be private
+			- CANNOT BE FOUND IN FRONT OF A VARIABLE
+		- interface
+			- declares behaviors for other classes to implement
+				- contract like
+			- convention for declaring an interface is to end the name with -able
+			- methods are implicitely abstract
+			- can have fields but have to be public static and final
+				- implicit
+				- basically a constant, cannot be changed
+			- Classes can implement as many interfaces as you want
+				- classes are limited to inheriting only one class
+				- interfaces better for contract for functionality
+				- classes better for inheritance/template
+			- classes IMPLEMENT interfaces Classes EXTEND other classes
+			- types of interfaces
+				- Marker interfaces
+					- an interface with no method declared
+					- to provide information to the compiler/JVM
+				- Functional interfaces
+					- interfaces with one method
+

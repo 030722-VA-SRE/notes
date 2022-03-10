@@ -1,0 +1,21 @@
+Strings
+	- String is a class, therefore we have String objects
+		- arrays of characters
+	- immutable: the value of strings cannot be changed
+	- Strings are usually stored in the String pool (which is in the heap)
+		- this allows Java to reuse the same String object for repeated instances
+			- String s = "s"; // String Pool
+			- String s = new String("s"); // stored in the heap and not the string pool
+		- .intern() - checks if a string is already in the String pool if yes returns a reference to it, otherwise adds to the string pool then returns the reference
+
+StringBuilder/StringBuffers
+	- mutable alternatives to Strings with methods that allow for manipulation
+	- StringBuffer - ThreadSafe, slower
+	- StringBuilder - not threadsafe, faster
+
+Scanner
+	- Class in java that can be used to capture user input via the console
+		- files, input streams
+	- can parse for different types, read a line....
+	- Recommendation: use one scanner per input stream (ie: System.in)
+	- Good practice is to close resources to avoid memory leaks

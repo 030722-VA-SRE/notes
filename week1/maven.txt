@@ -1,0 +1,31 @@
+Maven
+	- Project management tool, build automation tool
+	- Project management tool
+		- handles our dependencies for us
+			- dependency
+				- frameworks/libraries written by other developers to be used in your project
+					- include
+						- groupId
+						- artifactId
+						- version
+		- https://mvnrepository.com/
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.8.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+		- stored locally in ~/.m2 folder
+		- pom.xml
+			- Project Object Model
+				- metadata about the project, configuration, dependencies, build details
+					- allows for easy shared project configuration across teams
+	- Build automation tool
+		- managing the lifecyle of your application
+		- goal is to create an artifact to be deployed
+			- 3 build lifecycles
+				- clean - removes/clean previous artifacts (.jar, .war)
+				- default - test/package your application
+				- site - documentation

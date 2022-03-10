@@ -4,28 +4,30 @@ import java.util.Scanner;
 
 public class ScannerDriver {
 	
+	// Instantiate a scanner object and pass in System in
 	static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) {
 		
-		System.out.println("Hello World!");
-		System.out.println("What's your name?");
-		
-		String name = sc.nextLine();
-		
-		System.out.println("Hello " + name);
-		System.out.println("Pick a number:");
-		
-//		int num = sc.nextInt();
-		sc.nextLine(); // this sc.nextLine() flushes/grabs the leftovers from the previous input capture
-		String number = sc.nextLine();
-		 //some validation
-		int num = Integer.parseInt(number);	
-		System.out.println("You picked " + num);
+//		System.out.println("Hello World!");
+//		System.out.println("What's your name?");
+//		
+//		// captures the line provided by the user
+//		String name = sc.nextLine();
+//		
+//		System.out.println("Hello " + name);
+//		System.out.println("Pick a number:");
+//		
+////		int num = sc.nextInt();
+////		sc.nextLine(); // this sc.nextLine() flushes/grabs the leftovers from the previous input capture
+//		String number = sc.nextLine();
+//		 //some validation
+//		int num = Integer.parseInt(number);	
+//		System.out.println("You picked " + num);
 		
 //		ScannerDriver.loginScreen();
 		
-//		ScannerDriver.menu();
+		ScannerDriver.menu();
 		// Please close your resources people
 		sc.close();
 		

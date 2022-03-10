@@ -1,0 +1,48 @@
+Exceptions
+	- represent a condition that prevents a method from completing successfully
+	- objects created from the exception class and its subclasses
+	- Inherits from Throwable class
+	- divided into checked/unchecked exceptions
+		- checked exceptions are checked by the compiler
+			- "compile time exception", cannot compile the code until handled
+			- either Exception or its subclasses but not a Runtime exception 
+			- arise from circumstances outside of the programmer's control
+				- FileNotFoundException...
+		- unchecked/ runtime exceptions are not accounted for by the compiler
+			- subclass of runtime exception
+			- arise from coding errors/ can usually be preventing
+				- ArithmeticException, NullpointerException, ArrayOutOfBoundException
+
+Error
+	- also extend from Throwable
+	- Identify internal issues that cannot be recovered from
+		- bad practice to handle them/try to catch them
+	- ie: OutOfMemoryError, StackOverflowError...
+
+Exception handling
+	- try block
+		- used to encapsulate the "risky code"
+			- statements that may throw an exception
+	- catch block
+		- exception handler behavior
+		- catch (Exception e) {// exception handling behavior}
+			- can have multiple catch blocks
+				- order from most to least specific other most generic exception will catch all
+	- finally block
+		- executes regardless of the outcome
+			- whether an exception is caught or not
+		- used to close resources
+		- way to skip the finally block?
+			System.exit(0);
+
+	- throws
+		- used in the method signature to "pass the buck"
+		- if there is not enough information to handle an exception properly at the time it's thrown
+	- try-with-resources
+		- allows a resource to be closed without needing a finally block
+
+Throwing exception
+	- throw new FileNotFoundException();
+
+Custom Exceptions
+	- extends from relevant exception
