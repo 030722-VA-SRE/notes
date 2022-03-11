@@ -1,0 +1,2 @@
+18:04:00.552 [main] ERROR  - This is an error log!
+18:04:00.553 [main] ERROR  - Exception was thrown: java.io.FileNotFoundException
