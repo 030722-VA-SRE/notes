@@ -1,0 +1,16 @@
+Javalin
+	- lightweight framework for Java (and Kotlin) to handle HTTP requests and responses
+	- runs on an embedded webserver (Jetty)
+		- Jetty is an open source web server and servlet container that allows servlet application to be ran on
+	- Built on top of Servlet
+		- abstraction of Servlet
+
+Lambda expression
+	- allows for the compact expression of instances of single method classes
+		- implements a function interface without requiring a whole new class to do so
+	
+	- syntax:
+		() -> [return value];
+		([parameters]) -> {
+			// code goes here
+		}; 

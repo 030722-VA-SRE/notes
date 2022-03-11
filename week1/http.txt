@@ -1,0 +1,96 @@
+HTTP
+	- HyperText Tranfer Protocol
+		- transfer protocol to exchange information over the web
+	- consists of requests and responses to be exchanged between a client and a server
+		- information can be sent in many form
+			- plaintext, html
+			- JSON (JavaScript Object Notation)
+				- standard format for data transfer
+				- allows for information exchange between different applications
+					- different languages, frameworks...
+	- HTTP Request
+		- HTTP version: 1/1.1
+		- HTTP Verb/Method
+			- describing the operation requested by the HTTP request
+				- GET - retrieval operation
+				- POST - create operation (like adding data)
+				- PUT - update operation
+				- DELETE - delete operation
+		- URL
+			- where the request is sent to/ resource location
+		- Header
+			- metadata about the request
+				- data format
+				- authorization token, session...
+		- Body
+			- can be used to include information
+				- ie: cat fact to be created
+			- can be empty
+	- HTTP Response
+		- HTTP version
+		- Status Code - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+			- information about the status of the request (100s-500s)
+				- 100 level - informational
+				- 200 level - success
+				- 300 level - redirect
+				- 400 level - client error
+				- 500 level server error
+		- Header
+		- Body
+			- can also be empty
+			- can contain the "payload"
+
+JSON
+	- JavaScript Object Notation
+		- JS like
+		- string format used to represent object to be exchanged over the web
+			- ie:
+{
+    "id": 10,
+    "file-name": "bea02",
+    "name": {
+        "name-USen": "Curt",
+        "name-EUen": "Curt",
+        "name-EUde": "Kurt",
+        "name-EUes": "Gorbaché",
+        "name-USes": "Gorbaché",
+        "name-EUfr": "Curt",
+        "name-USfr": "Curt",
+        "name-EUit": "Curt",
+        "name-EUnl": "Curt",
+        "name-CNzh": "铁熊",
+        "name-TWzh": "鐵熊",
+        "name-JPja": "ガンテツ",
+        "name-KRko": "뚝심",
+        "name-EUru": "Керт"
+    },
+    "personality": "Cranky",
+    "birthday-string": "July 1st",
+    "birthday": "1/7",
+    "species": "Bear",
+    "gender": "Male",
+    "subtype": "A",
+    "hobby": "Nature",
+    "catch-phrase": "fuzzball",
+    "icon_uri": "https://acnhapi.com/v1/icons/villagers/10",
+    "image_uri": "https://acnhapi.com/v1/images/villagers/10",
+    "bubble-color": "#515151",
+    "text-color": "#fffce9",
+    "saying": "A Bell saved is a Bell earned.",
+    "catch-translations": {
+        "catch-USen": "fuzzball",
+        "catch-EUen": "fuzzball",
+        "catch-EUde": "grumml",
+        "catch-EUes": "oye",
+        "catch-USes": "gromp",
+        "catch-EUfr": "bouboule",
+        "catch-USfr": "bouboule",
+        "catch-EUit": "grrroan",
+        "catch-EUnl": "brombeer",
+        "catch-CNzh": "嗯唔",
+        "catch-TWzh": "嗯唔",
+        "catch-JPja": "ウム",
+        "catch-KRko": "음",
+        "catch-EUru": "махрово"
+    }
+}
