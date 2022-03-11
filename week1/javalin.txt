@@ -4,6 +4,34 @@ Javalin
 		- Jetty is an open source web server and servlet container that allows servlet application to be ran on
 	- Built on top of Servlet
 		- abstraction of Servlet
+	- Set up
+		- dependencies
+			- javalin
+			- slf4j
+			- (Object mapper)
+		- main
+			- Javalin app = Javalin.create( (config) -> {});
+			- app.start(portNumber)
+				- by default 8080
+	- HTTP Handlers
+		- functional interface that takes a Context object as a parameter and is used to specify a behavior to handle a request at a particular endpoint
+		- Context object
+			- is an abstraction of the HttpServletRequest and the HttpServletResponse which are classes used to intereact with an HTTP request and HTTP response
+			- used to retrieve information about the request
+				- url
+				- body
+				- headers
+			- used to add information the response
+				- headers
+				- body
+				- status code
+			- https://javalin.io/documentation#context
+
+JSON Marshalling/Object mapping
+	- Converting Java Objects to JSON
+		- Mapping for data exchange
+	- Jackson-databind is leveraged by Javalin under the hood
+		- it provides us with a way to convert Java to JSON and vice versa
 
 Lambda expression
 	- allows for the compact expression of instances of single method classes
