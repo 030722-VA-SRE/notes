@@ -1,0 +1,120 @@
+Database
+	- collection of related data
+	- allows for the preservation of data past the lifetime of an application
+
+DBMS
+	- Database management systems
+		- collections of applications used to create and maintain databases
+			- store data in a structured format
+			- allows for concurrent use of data
+			- control the access of data
+			- maintain data integrity
+			- data back up and recovery
+	- RDBMS
+		- Relational Database Management Systens
+			- consists of a collection of tables where tables are connected and reference each other
+				- Table
+					- rows
+						- particular instance of a data category
+							- records, data entities
+					- columns
+						- category of data/fields
+SQL
+	- Structured Query Language
+		- provides a way to interact with data entities
+	- SQL implementations
+		- different "flavors" of SQL, arising the different vendors and platforms available
+			- ie: PostgreSQL, OracleSQL, MySQL
+			- syntax may vary based on the implementation
+				- we're going to be working with PostgreSQL
+important distinction
+	- PostgreSQL is the RDBMS
+	- DBeaver is a tool used to visualize and interact with database entities
+		- IS NOT A DATABASE
+
+Database schema is a collection of tables, views, trigger, functions...
+	- all belong to one database
+		- a database may have multiple schema
+		- https://database.guide/wp-content/uploads/2016/06/sakila_full_database_schema_diagram.png
+
+PostgreSQL
+	- free and opensource
+	- Datatypes - https://www.postgresql.org/docs/10/datatype.html
+		- Character types
+			- CHAR
+				- fixed-length, blank padded
+			- VARCHAR
+				- variable length, with a limit
+			- TEXT
+				- variable length, with no limit
+		- Numeric types
+			- INTEGER
+			- DECIMAL
+				- for floating point values, user specified
+		- Temporal types
+			- DATE
+			- TIME
+			- TIMESTAMP
+				- date and time
+		- Autoincrementing integer
+			- SERIAL
+
+SQL Sublanguages
+	- refers to the different types of operations to be performed on database entities
+	- for the sake of this training there are 5 SQL sublanguages
+		- DDL, DCL, DML, DQL, TCL
+
+DDL
+	- Data Definition Language
+	- Statements that are used to construct/edit/delete database/schema/users/tables/properties (data entities)
+		- CREATE
+		- ALTER
+		- DROP
+		- TRUNCATE
+			- unlike DROP, removes all of the records in a table
+
+Keys
+	- primary keys
+		- a column or combination of columns which acts as a unique identifier to a record in a table
+			- composite keys
+				- combination of columns which act as the primary key
+			- UNIQUE and NOT NULL
+	- foreign keys
+		- used to illustrate relations between records
+			- "point"/"reference" a record in another table
+	- candidate keys
+		- any columns that could be a primary key
+
+Constraints
+	- limit the type of data entered in tables to ensure the accuracy and reliability of the ata
+		- primary key
+			- not null and unique
+		- unique, column's value needs to be unique
+		- not null, column value cannot be null
+		- check(condition)
+			- ensurs that the condition is met
+		- references
+			- foreign key relationships
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
