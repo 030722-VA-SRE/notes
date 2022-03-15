@@ -96,10 +96,67 @@ Constraints
 		- references
 			- foreign key relationships
 
+Domain integrity
+	- values must fall within the constraints placed on the columns
+	- make sure that the values are correct in order to support the business logic
+	
+Referential integrity
+	- want the database to be working properly within the constraints of a foreign key relationship
+	- don't want records to reference another record that no longer exists
+		- orphaned record
+	- delete on cascade
+		- deletes the record and records referencing it as well
+
+Multiplicity
+	- refers to relationships between tables
+		- one-to-one
+			- exactly one row references another row in another table
+			- ie: SSN per individual
+		- one-to-many/ many to one
+			- exactly one row in a table is referenced by potentially many rows in another table
+			- ie: one team has many players but each player has only one team
+		- many-to-many
+			- several rows can be references by several rows in another table
+				- ie: users can have many friends
+			- junction table
+				- table that has a primary key which is a composite key of foreign key
 
 
+DCL
+	- Data Control Language
+	- managing user permissions within a database
+		- GRANT and REVOKE to define power/access to schema/tables to users
 
+DML
+	- Data Manipulation Language
+	- statements used to perform record level operation
+		- to interact with records within tables
+	- CRUD
+		- create/read/update/delete
+	- INSERT
+		- create operation
+		- insert into [table_name] ([col1_name], [col2_name],...) values ([col1_value], [col2_value],...);
+			- ez way to generate data:
+				- https://www.mockaroo.com/
+	- UPDATE
+		- update [table_name] set [col1_name] = [col1_value] where [condition];
+			- if no where clause is specified, it will update every record in the table
+	- DELETE
+		- delete from [table_name] where [condition];
+			- if no where clause is specified, it will delete every record in the table
 
+DQL
+	- Data Query Language
+		- "sub-sub" language/ part of DML
+	- Statements used to retrieve information from tables
+	- SELECT
+		- main operation that is used when querying data
+			- can use addition clause to filter much much further
+		- where
+		- group by
+		- having (kind of like the where clause after aggregation)
+		- order by
+		- limit
 
 
 
