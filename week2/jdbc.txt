@@ -1,0 +1,29 @@
+JDBC
+	- Java Database Connectivity
+		- establish a connection between a java application and a database
+			- dependency needed is database specific
+	- Important JDBC classes/ interfaces
+		- DriverManager (C)
+			- manages the JDBC driver
+			- .getConnection() method
+				- provide a connection to the database using url, username, password
+					- hardcoded (bad practice)
+					- property file (prevent credential leak by adding file to gitignore)
+					- environment variables
+		- Connection (I)
+			- represents the connection to your database
+			- createStatement()/PreparedStatement()
+			- close()
+		- Statement (I)
+			- represents a SQL statement
+			- .executeQuery()
+				- vulnerable to SQL injection
+		- PreparedStatement (I)
+			- represents a SQL statement
+				- that has been preprocessed and prevents SQL injection
+			- use methods to set fields
+		- ResultSet (I)
+			- represents the result of a query
+	- SQL injection
+		- placing malicious code into a sql statement
+			- ie: username = "0; DROP TABLE X;"
