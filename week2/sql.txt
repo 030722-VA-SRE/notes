@@ -220,9 +220,18 @@ TCL
 			- transaction re-execute a query an returns a set of row to find out that the set has been modified by another transaction
 
 
-
-
-
+Set Operations (union)
+	- operations used to combine queries together 
+		- NOTE: different from Joins (joins combine tables together)
+	- union
+		- combining select query results with no duplicates
+	- union all
+		- combining select query result with duplicates
+			- faster
+	- intersect
+		- returns only the common records from both data sets
+	- except
+		- returns a dataset where the second results are removed from the first one
 
 
 

@@ -1,0 +1,13 @@
+Sonar Lint
+	- code analysis tool
+	- part of the Sonar family
+	- looks for code smells
+		- code that can potentially become buggy
+	- installing sonarlint in sts
+		- help
+		- eclipse market place
+		- look up sonarlint in "find" search bar
+		- select SonarLint X.X.X
+		- click install
+		- might have to restart ide for changes to come in place
+		

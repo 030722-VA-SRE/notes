@@ -27,3 +27,9 @@ JDBC
 	- SQL injection
 		- placing malicious code into a sql statement
 			- ie: username = "0; DROP TABLE X;"
+
+DAO
+	- Data Access Object
+		- design pattern
+			- programming best practice to address common programming "issues"/"problems"
+		- used to address decoupling Java object persistence into a specific class

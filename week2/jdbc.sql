@@ -42,6 +42,10 @@ delete from users where id = 1;
 -- create a tasks 
 insert into tasks(description, is_completed, user_assigned_id) values ('task1',true,1);
 insert into tasks(description, user_assigned_id) values ('task2',1);
+insert into tasks(description, user_assigned_id) values ('task3',2);
+insert into tasks(description, user_assigned_id) values ('task4',3);
+insert into tasks(description, user_assigned_id) values ('task5',3);
+insert into tasks(description, user_assigned_id) values ('task6',2);
 
 -- retrieve all tasks 
 select * from tasks;
@@ -68,3 +72,27 @@ select t.id, t.description , t.is_completed , u.username  from tasks t
 join users u 
 on t.user_assigned_id = u.id;
 
+-- union
+select * from tasks where user_assigned_id = 1
+union 
+select * from tasks where user_assigned_id = 2;
+
+-- union all
+select * from tasks where user_assigned_id = 1
+union all
+select * from tasks where is_completed = true;
+
+-- union filters for duplicates(ie: records that match either criteria)
+select * from tasks where user_assigned_id = 1
+union
+select * from tasks where is_completed = true;
+
+-- intersect returns records that match both criteria
+select * from tasks where user_assigned_id = 1
+intersect 
+select * from tasks where is_completed = true;
+
+-- except returns records that match the first criteria but not the second
+select * from tasks where user_assigned_id = 1
+except
+select * from tasks where is_completed = true;
