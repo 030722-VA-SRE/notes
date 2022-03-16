@@ -57,3 +57,14 @@ select * from tasks where user_assigned_id = 1;
 
 -- retrieving tasks for a specific user and not completed
 select * from tasks where user_assigned_id = 1 and is_completed = false;
+
+-- joins
+select * from tasks
+join users
+on tasks.user_assigned_id = users.id ;
+
+-- referring to tasks as t and users table as u
+select t.id, t.description , t.is_completed , u.username  from tasks t
+join users u 
+on t.user_assigned_id = u.id;
+

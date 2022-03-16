@@ -159,6 +159,98 @@ DQL
 		- limit
 
 
+Joins
+	- way to combine rows from different tables based on some logical relationship (columns) 
+		- inner join/ join: returns all the records that have matching values in both tables
+		- left(outer) join: return all records from the left table and matching records from the right table
+		- right(outer) join: return all records from the right table and matching records from the left table
+		- full(outer) join: returns all records whether there is a match or not from both tables 
+		- self join: join a table with itself to combine related data on the same table
+
+	- Join documentation: https://www.postgresql.org/docs/10/tutorial-join.html
+
+
+TCL
+	- Transaction Control Language
+		- Transaction consists in combining multiple database operations into one unit of work
+			- (PostgreSQL treats every SQL statement as being executed within a transaction unless specified otherwise)
+	- Relevant statements
+		- begin
+			- can indicate the start of a transaction
+				- if begin is not used, one can be provided implicitely
+			- put the statement(s) to be executed as one unit work
+			- between begin and commit
+		- savepoint
+			- saves the state of the database at a certain point within the transaction
+		- rollback
+			- reverts the state of a database to a previous commit or savepoint
+		- commit
+			- saves/persist changes to a database
+
+	- https://www.postgresql.org/docs/10/tutorial-transactions.html
+	- Properties of a transaction - ACID
+		- Atomicity
+			- one unit, transaction should be completed as a whole or not at all
+		- Consistency
+			- database should be in a valid state before/after the transaction
+				- valid in regards to the database constraints
+				- valid in regards to the business logic
+		- Isolation
+			- a transaction should not interfere with another transaction
+			- results of a transactions executing concurrently should be the same as if they occured in sequence
+		- Durability
+			- Commits are final, changes should be persisted to the database
+
+	- Transaction Isolation Levels
+		- Read uncommited
+			- able to read/interact with uncommited
+		- Read committed
+			- only able to interact with commited data
+		- Repeatable read
+			- only see data that has been committed before the transaction began
+		- Serializable
+			- strictest level of isolation
+			- making transactions happen one after another
+	- Read phenomena
+		- Dirty read (arises from read uncommitted isolation level)
+			- transaction is able to read data written in a concurrent uncommitted transaction
+		- Non repeatable read
+			- transaction re-reads data that it has previously read and finds that the data has been modified by another transaction
+		- Phantom read
+			- transaction re-execute a query an returns a set of row to find out that the set has been modified by another transaction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
