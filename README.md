@@ -5,7 +5,7 @@ The environment setup guide for week 1 and 2 can be found [here](https://github.
 
 ## Training Calendar
 * 03/16
-    * QC - (10:30am ET)
+    * QC - (2pm ET)
 * 03/15
     * Kevin meeting(5:30-6pm)
 * 03/11

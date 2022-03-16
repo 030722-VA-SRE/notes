@@ -96,22 +96,74 @@ public class UserPostgres implements UserDao{
 
 	@Override
 	public User getUserByUsername(String username) {
-		String sql = "select * from users where id = " + username + ";";
-		// username = "0; DROP TABLE USERS;"
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from users where username = ?;";
+		User user = null;
+		
+		try(Connection c = ConnectionUtil.getConnectionFromEnv()){
+			PreparedStatement ps = c.prepareStatement(sql);
+			
+			ps.setString(1, username); // this refers to the 1st ? in the sql String
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				user = new User();
+				user.setId(rs.getInt("id"));
+				user.setUsername(rs.getString("username"));
+				user.setPassword(rs.getString("password"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return user;
 	}
 
 	@Override
 	public boolean updateUser(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "update users set username = ?, password = ? where id = ?;";
+		int rowsChanged = -1;
+		
+		try(Connection c = ConnectionUtil.getConnectionFromEnv()){
+			PreparedStatement ps = c.prepareStatement(sql);
+			
+			ps.setString(1, user.getUsername());
+			ps.setString(2, user.getPassword());
+			ps.setInt(3, user.getId());
+			
+			rowsChanged = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(rowsChanged < 1) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
 	public boolean deleteUserById(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "delete from users where id = ?;";
+		int rowsChanged = -1;
+		try(Connection c = ConnectionUtil.getConnectionFromEnv()){
+			PreparedStatement ps = c.prepareStatement(sql);
+			
+			ps.setInt(1, id);
+			
+			rowsChanged = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		if(rowsChanged < 1) {
+			return false;
+		}
+		return true;
 	}
 
 }
