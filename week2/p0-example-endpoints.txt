@@ -1,0 +1,30 @@
+API endpoints:
+
+	/items - GET
+		- returns all items
+
+	/items/{id} - GET
+		- return item of id specified
+
+			- case:
+				- id exists
+					- return that record in the HTTP response
+						- body: the item in JSON format
+						- status: 200
+				- item at that id does not exist
+					- return an HTTP response
+						- status of 404
+		- web(in this case can just be in the Driver class)
+			- HTTP related logic
+				- retrieving id from the HTTP request
+				- sending appropriate HTTP response based on outcome
+					- if ItemNotFoundException is thrown, return status 404
+				- if record exists, return the record in JSON format
+		- service layer
+			- Business logic
+				- if an object is not found, throw a "ItemNotFoundException"
+		- daos
+			- Persistence related logic
+				- query database for item at a specific id
+					- returns the item if found
+					- returns null if not found	

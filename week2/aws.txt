@@ -1,0 +1,71 @@
+AWS
+	- Amazon Web Services
+	- offer cloud solutions to customer needs
+	- Why Cloud?
+		- cost saving
+			- not have to manage servers on-premise
+				- staff
+				- maintenance/upgrades 
+		- Infrastructure
+		- scalability
+			- Auto-scaling
+				- pay for what you use, can adapt for short terms need
+		- durability
+	- Regions and availability zones
+		- Regions: groupings of AWS zones available worldwide
+		- Availability zones: data centers containing infrastructure
+
+	- Cloud Computing models
+		- models in which cloud services can be provided
+			-https://encrypted-tbn0.gstatic.com/imagesq=tbn:ANd9GcRIchihgASzdzIXE9V6fk6j7zYqPja31irPMJZktGuwzn5TkZRmVAnA685JA41Fd2fRfu4&usqp=CAU
+		- IaaS
+			- Infrastructure as a service
+			- users need to provide and manage, application, data, runtime env, middleware and OS
+				- EC2
+		- PaaS
+			- Platform as a service
+			- users need to provide application and data
+		- SaaS
+			- Software as a service
+			- everything is abstracted
+	- Services
+		- RDS
+			- hosting a db on AWS
+		- EC2
+			- elastic cloud compute
+			- Virtual machine on the cloud
+		- AMI
+			- Amazon Machine Image
+			- AMI is a template that contains the software configuration (operating system, application server, and applications) required to launch your instance
+		- EBS
+			- Elastic block storage
+			- Block storage associated with an ec2
+				- virtual hard drive
+			- can be shared across instances
+		- Security groups
+			- Details what traffic is allowed in and out
+			- traffic filter/firewall
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
