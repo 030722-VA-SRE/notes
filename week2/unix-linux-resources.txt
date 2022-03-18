@@ -1,0 +1,6 @@
+Unix/Linux resources + bash scripting:
+	- https://www.tutorialspoint.com/unix/index.htm
+	- https://ryanstutorials.net/bash-scripting-tutorial/
+
+Processes
+	- https://www.theunixschool.com/2012/09/what-is-process-in-unix-linux.html
