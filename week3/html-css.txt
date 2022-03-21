@@ -1,0 +1,63 @@
+HTML
+	- Hypertext Mark-up Language
+		- NOT A PROGRAMMING LANGUAGE
+	- Define the structure of a webpage using html tags
+		- tags follow a nested structure
+		- structure of an HTML document
+		- Doctype declaration
+			- lets the browser know that a document is an html document
+		- html
+			- root tag of the html document
+			- head
+				- metadata
+			- body
+				- web page content
+	- Elements in HTML have attributes
+		- these are used to provide more information regarding the tag
+		- global attributes
+			- present in all html tags
+				- class
+				- id
+				- style
+		- local attributes
+			- present in certain tags
+				- source
+				- href
+	- Semantic elements
+		- provide more meanings to HTML tags
+			- nav, main, section...
+		- help with accessibility
+	- Forms
+		- tags that can be used to submit information
+			- form can submit information without js using attributes only
+				- method: specify http method
+				- action attribute: specify the url location
+		- can use input fields to capture information
+		- usually used in conjunction with JS to send HTTP requests and handle http responses
+
+CSS
+	- Cascading Style Sheets
+	- add looks/style to HTML document
+		- HTML is the structure and CSS is the styling
+	- Adding CSS to an HTML document
+		- inline
+			- within an html tag, via an attribute
+		- internally
+			- use a style tag in the html document, usually in the head
+		- externally
+			- external style sheet
+				- best practice because reusable
+	- structure
+		- selector{
+			property:value
+		}
+	- Selectors
+		- there are MANY ways to target elements within a webpage
+			- https://www.w3schools.com/cssref/css_selectors.asp
+		- the ones we're going to focus on:
+			- tag
+			- class (.)
+			- id (#)
+		- based on specificity, most specific selector applies
+			- id > class > tag
+		

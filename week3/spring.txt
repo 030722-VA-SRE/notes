@@ -1,0 +1,44 @@
+Spring
+	- Framework that leverages Inversion of Control (IoC) and Dependency Injection (DI) in order to accelerate software development
+	- in general "Spring" refers to the Spring Framework
+	- Spring Modules
+		- different "features" within the Spring Framework which usually address a specific concern within an application
+			- SpringCore (IoC Container)
+			- Spring Beans
+			- Spring Context
+			- Spring WebMVC
+			- Spring AOP
+			- Spring ORM
+	- Spring Projects
+		- address different industry concerns (ie: Security, MSA, Rapid development)
+			- Spring Security
+			- Spring Cloud
+			- Spring Boot
+			- Spring Data
+	- IoC Container
+		- Spring Container
+		- responsible for instantiating our dependencies and providing them to our code
+			- NOT REFERING TO MAVEN DEPENDENCIES
+	- Spring Bean
+		- Any Java Entity that is managed by the IoC Container
+			- the lifecycle
+				- instantiation
+				- handling dependencies
+					- provided by Spring
+				- deallocating the resource 
+	- Dependency Injection
+		- "dependency"
+			- object/entity that is needed for our code to work properly
+		- "injection"
+			- framework provides the instances of these objects for us
+IoC Container
+	- BeanFactory (implementation)
+		- older version
+		- lazy loading
+	- ApplicationContext (implementation)
+		- newer version that is in use
+		- eager instantiation
+	- Bean life cycle
+		- managed by the IoC Container
+			- steps for initialization/destruction of a bean
+		- https://howtodoinjava.com/spring-core/spring-bean-life-cycle/

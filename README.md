@@ -4,6 +4,21 @@
 The environment setup guide for week 1 and 2 can be found [here](https://github.com/022822-VA-SRE/notes/blob/main/setup/env_guide.md).*
 
 ## Training Calendar
+* 03/23
+    * QC - Project 0 presentations (10am ET)
+        - 5 minutes per person, not including questions
+            - Intro
+                - What is your project about
+                - Technologies used
+                - Your name
+            - Demo 
+                - can have set up
+                    - ie: prepopulate database
+                - talk about the implementations of the different features that were implemented
+            - Logs
+            - Testing
+        - I will give a 4 minutes warning and cut you off at 5 minutes
+    * Kevin meetings (2pm-3:45pm)
 * 03/16
     * QC - (2pm ET)
 * 03/15
