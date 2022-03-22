@@ -18,7 +18,7 @@ The environment setup guide for week 1 and 2 can be found [here](https://github.
             - Logs
             - Testing
         - I will give a 4 minutes warning and cut you off at 5 minutes
-    * Kevin meetings (2pm-3:45pm)
+    * Kevin meetings (3pm-3:45pm)
 * 03/16
     * QC - (2pm ET)
 * 03/15
