@@ -1,0 +1,139 @@
+Spring Boot
+	- Spring project
+		- built upon different modules within the Spring framework
+	- makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".
+	- takes an opinionated view of the Spring platform and third-party libraries
+		- requires minimum configuration
+		- "conventions over configuration"
+			- reduces the amount of configuration by assuming common convention
+				- ie: server runs on port 8080
+			- can still override these conventions in application.yml/properties
+	- has an embedded Tomcat Server
+		- in the past to deploy a "servlet" application would have to package as a .war and deploy it on a web server
+			- like Tomcat, Jetty...
+		- Tomcat is embedded within our .jar package
+	- can easily create Spring Boot project using spring initializr
+		- https://start.spring.io/
+	- setup 
+		- class with main method
+			- needs to be in the parent/base package of the application
+				- otherwise the component scanner may not find the relevant Spring beans
+			- @SpringBootApplication annotation
+				- abstraction of 3 annotations
+					- @Configuration
+					- @EnableAutoConfiguration
+					- @ComponentScan
+		- SpringApplication.run([Class].class, args);
+	- DevTools
+		- set of tools to make development easier
+			- automatic server restart
+			- live reloading of the AC
+			- ...
+	- Actuator
+		- information about the application through certain endpoints
+			- metrics (trafic...)
+			- beans managed...
+			- health checks
+
+Stereotype annotations
+	- refers to annotations used for beans that the IoC container should manage
+		- 4 main types
+			- @Component: standard, managed bean. other annotations include this implicitely
+			- @Service: denotes a service
+			- @Controller: denotes a controller, in conjunction with Spring WebMVC to handle HTTP requests
+			- @Repository: denotes a repository/dao, in conjunction with SpringData JPA to interct with our persistence layer
+
+@Bean
+	- Annotation that goes over a METHOD to specify that the returned object will be managed by Spring
+		- good for objects that have a class that we DIDN'T write
+
+Bean wiring
+	- refers to establishing dependencies between Spring beans
+	- can do XML or annotation based
+		- @Autowired
+			- used to tell Spring that an object is a dependency
+			- Dependency injection
+				- Spring finding the relevant requested bean as dependency and injecting it
+					- 4 types of DI, Spring supports only 3
+						- field injection: mark with @Autowired above the field
+							- not the best practice
+						- setter injection: mark with @Autowired above the setter
+						- constructor injection: mark with @Autowired above the constructor
+						- interface injection
+							- not supported by Spring		
+			- ByName/Type
+			- Automagically
+				- letting spring figure it out
+
+Scopes of a Bean
+	- Singleton
+		- once a bean is created all of the request for this bean are going to return the same one/ the same instance
+	- Prototype
+		- everytime a bean is requested, return a new instance
+	- Web Related
+		- Request
+			- new bean per HTTP Request
+		- Session
+			- new bean per HTTP Session
+		- Global
+			- new bean per HTTP Global session
+
+
+Spring Web MVC
+	- Spring Module
+		- Spring Web
+	- Allows us to handle HTTP Requests for Spring applications
+	- Abstracted away
+		- leverages a Front Controller Design Pattern
+			- all the requests are funneled into a dispatcher servlet which then maps them to the relevant controller
+		- we only have to provide implementation of controller methods and mapping
+	- Controllers have methods to handle requests at a particular path/http method
+		- can return
+			- data(JSON)
+			- Views/static resources (html document)
+	- MVC Annotations
+		- @Controller
+			- stereotype annotation to denote a controller class to be managed by the IoC container
+			- can be leveraged alongside @RequestMapping to establish a path for the controller
+		- @RequestMapping(mapping, httpMethod)
+			- used to provide an http verb and url mapping for a method to handle
+			- By default http request go through ViewResolver unless @ResponseBody is specified
+		- @GetMapping/@PostMapping...
+			- like requestMapping with the type of request prespecified
+				- retrieve information from a request
+					- @PathVariable 
+						- /flowers/{id}
+					- @RequestBody
+						- map a JSON object to a Java object implicitely
+					- @RequestParam
+						- /flowers?color=[value]
+		- @RestController
+			- annotation that can be used to replace @Controller
+				- it implicitely adds @ResponseBody to all the methods in that class
+	- Response Entity
+		- class to provide more granular control over the return of an HTTP response
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
