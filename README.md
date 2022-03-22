@@ -4,6 +4,9 @@
 The environment setup guide for week 1 and 2 can be found [here](https://github.com/022822-VA-SRE/notes/blob/main/setup/env_guide.md).*
 
 ## Training Calendar
+* 03/24
+    * Project 3 Showcase:
+        - 10:30am ET: I will be providing the link the morning of 
 * 03/23
     * QC - Project 0 presentations (10am ET)
         - 5 minutes per person, not including questions
@@ -18,7 +21,6 @@ The environment setup guide for week 1 and 2 can be found [here](https://github.
             - Logs
             - Testing
         - I will give a 4 minutes warning and cut you off at 5 minutes
-    * Kevin meetings (3pm-3:45pm)
 * 03/16
     * QC - (2pm ET)
 * 03/15
