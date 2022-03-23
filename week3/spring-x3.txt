@@ -1,0 +1,49 @@
+ORM
+	- Object Relational Mapping
+		- converts between incompatible types of Object (in Java) and database tables
+
+JPA
+	- Java Persistence API
+		- list of interfaces meant for the mapping/managing of relational data with Java Object
+		- "concept" rather than a tool
+			- describes which objects should be persisted and how
+			- tools like Hibernate IMPLEMENT JPA
+				- JPA != Hibernate
+
+Hibernate
+	- ORM framework for Java
+	- Benefits
+		- Abstraction of JDBC
+			- uses JDBC under the hood
+			- abstracts away SQL queries
+				- abstracts away the SQL dialects used (ie: Postgres, Oracle, MySQL...)
+			- Reduces Boiler plate code
+
+Spring Data JPA
+	- Spring Data is a Spring Project used to address data persistence
+		- Spring Data JPA
+			- "a module" within Spring Data project
+			- provides standard implementation to common DAO methods
+			- built upon Spring ORM, which is built upon Hibernate, which is built upon JDBC
+		- Spring Data Hierarchy
+			- Repository (I)
+			- CrudRepository (I)
+			- PagingAndSortingRepository (I)
+			- JpaRepository (I)
+		- Custom methods
+			- declaring a method signature in the interface to be implemented
+			- https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.details
+		- @Query
+			- allows the user to provide custom behavior that may not be provided by spring
+	- Set up
+		- map our models with JPA annotations
+			- @Entity
+			- @Table
+			- ...
+		- create an interface mapped with @Repository
+			- extend JpaRepository<Resource, idType>
+		- providing credentials in the application.yml
+
+Multiplicity resources:
+	- https://www.baeldung.com/jpa-many-to-many
+	- https://www.baeldung.com/hibernate-one-to-many
