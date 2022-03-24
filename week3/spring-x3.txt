@@ -47,3 +47,41 @@ Spring Data JPA
 Multiplicity resources:
 	- https://www.baeldung.com/jpa-many-to-many
 	- https://www.baeldung.com/hibernate-one-to-many
+
+Spring Profiles
+	- allow us to use different version of beans in different environment
+		- allows to have different configurations for different environments (dev vs prod)
+			- dev
+				- for development/testing
+				- we could also have an in memory database as a datasource
+			- prod
+				- for end users
+				- has its own database
+	- setup
+		- in application.yml
+		- in pom.xml
+	- Changing from dev to prod while packaging using maven
+		- mvn package -Dmaven.test.skip -Pprod
+
+Set up h2 db
+	- import h2 dependency
+	- configure h2 in the application.yml
+	- add some data to be preloaded using a data.sql file in the resource folder
+		- contains sql statements to be ran when the file is loaded
+	- access h2-console
+		- like dbeaver for h2 database
+		- localhost:[port]/h2-console
+			- URL defined in your config file
+			- username defined in your config file
+			- password defined in your config file
+spring:
+  datasource:
+    url: jdbc:h2:mem:dbtest
+    username: sa
+    password: pass
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create

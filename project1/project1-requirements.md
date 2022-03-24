@@ -19,6 +19,7 @@
     * As a customer, I can purchase an item.
     * As an employee, I can remove an item from the shop.
     * As a customer, I can view the items that I own.
+3. Logging and Testing
 
 ## Phase 1 bonus
 
