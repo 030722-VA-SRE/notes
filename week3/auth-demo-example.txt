@@ -1,0 +1,104 @@
+Basic (simplified) auth demo
+	- sessions
+	- cookies
+	- jwt
+
+Models
+	- User (C)
+	
+	- Lion (C)
+
+Daos (data persistence, using Spring Data JPA)
+	- UserRepository extends JpaRepository(I) 
+	- LionRepository extends JpaRepository(I) 
+
+Services (Business Logic...)
+	- UserService (C)
+		- field
+			- UserRepository
+			- LionRepository
+		- CRUD handling methods
+		- getById(int id)
+			- throws UserNotFoundException
+	- LionService (C)
+		- field
+			- LionRepository
+		- CRUD handling methods
+	- AuthService (C)
+		- field
+			- UserRepository
+		- login(Username, password)
+			- compare the username and pass to the database
+		- authorize(token)
+			- logic to check the token
+			
+Web/Controllers (HTTP Request/HTTP response logic)
+	- UserController (C)
+		- field
+			- UserService
+			- LionService
+		- /users
+			- GET
+				- get all the users
+			- POST 
+				- add a user to the database
+					- if userAlreadyExistsException
+						- 400
+			- /{id}
+				- PUT
+					- update a user in the database based on the id
+				- DELETE 
+					- remove a user in the database based on an id
+				- GET
+					- get user by an id
+						- if UserNotFoundException 
+							- return 404
+				- /lions
+					- get all lions for that user
+	- LionController (C)
+		- field
+			- LionService
+		- /lions
+			- GET
+				- get all the lions
+			- POST 
+				- add a lion to the database
+			- /{id}
+				- PUT
+					- update a lion in the database based on the id
+				- DELETE 
+					- remove a lion in the database based on an id
+				- GET
+					- get lion by an id
+	- AuthController (C)
+		- /auth
+			- POST
+				- return "Authorization" token
+				- Status code
+Exceptions
+	- UserNotFoundException
+	- UserAlreadyExistsException
+
+
+HTTP Request
+	- Version
+	- Verb
+		- GET/PUT/POST/DELETE...
+	- Domain
+		- /lions
+	- Headers
+		- data/metadata within each request
+		- "Authorization":"{userId:username}"
+			- expiration date/time
+	- Body
+
+Retrieving Token
+	- HTTP Request
+		- /auth
+		- POST
+			- Username
+			- Password
+	- HTTP Response
+		- Status Code: 200
+		- headers
+			- Authorization 

@@ -85,3 +85,33 @@ spring:
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: create
+
+DTO
+	- Data Transfer Objects
+		- returning objects without sensitive data to be transferred between webservices/to the front end
+
+GlobalExceptionHandler
+	- allows for the handling of all exception occuring server side with relevant http status code in a single class
+		- @ControllerAdvice
+
+	@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="No user of that id was found.")
+	@ExceptionHandler(UserNotFoundException.class)
+	public void handleUserNotFoundException() {
+		// log or something
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
