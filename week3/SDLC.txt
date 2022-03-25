@@ -1,0 +1,106 @@
+SDLC
+	- Software Development Life Cycle
+	- Process of planning, creating, testing, and displaying an information system
+	- General steps/phases
+		- Requirement phase
+			- evaluate the current system and identify deficiencies
+			- meetings with client/ share holders/ eliciting requirements
+				- done by Business Analysts(BAs)
+		- Analysis phase
+			- Requirements are going to be defined
+				- particular deficiencies in the system and a proposal is made
+			- Senior Devs/Architect and BAs
+		- Design phase
+			- Proposed system is designed and product features are planned out
+			- no coding has happened yet
+		- Development phase
+			- Software is built
+			- code is written
+		- Testing phase
+			- Software is tested to ensure functionality
+			- Testing team
+		- Deployment/maintenance phase(s)
+			- product is delivered/made available to the customer/clients
+			- maintenance is kept up
+				- bugs/tickets are handled
+				- application is running properly
+
+Waterfall model
+	- traditional model, linear/sequential cycle
+	- each phase must be completed before going to the next phase, no overlapping of the phases
+		- inflexible
+	- Advantages
+		- well defined steps
+		- works well with well fleshed out requirements
+		- works well with smaller project
+	- Disadvatages
+		- can't accomodate for customer feedback
+		- Slow
+		- inefficient use of resources
+		- gaps between teams
+
+Agile
+	- Approach to SDLC based on iterative and incremental development with a focus on customer satisfaction and rapid delivery of software product
+		- breaking down the product into small incremental builds provided in iteractions, each iteration involving cross functional teams
+	- a philosophy/mindset
+		- Individuals and interactions over processes and tools
+		- Working software over comprehensive documentation
+		- Customer collaboration over contract negotiation
+		- Responding to change over following a plan
+			- https://agilemanifesto.org/
+
+Terminology
+	- User Story
+		 - individual feature/requirement for a project
+	- Epic
+		- group of related user stories that make up a big feature
+	- Story point
+		- level of difficulty assigned to a user story
+			- can be perceived as the number of hours/time spent working on that feature
+	- Sprint
+		- specified timeline for an iteration
+			- (2 weeks to a month)
+
+Scrum
+	- Agile framework, implementation of Agile
+	- Scrum team
+		- Product Owner
+			- responsible or the product resulting from the dev team
+			- responsible for managing the product backlog
+		- Scrum master
+			- facilitator to the scrum team
+			- responsible for clarifying questions, organize scrum activities...
+		- usually 5-9 members
+			- devs
+			- QA
+			- BAs
+	- Scrum artifacts (documents)
+		- product backlog
+			- List of everything that is known to be needed in the product/ list of requirements/ features
+			- managed by the product owner
+		- sprint backlog
+			- set of product backlog items selected for a sprint
+		- burndown chart
+			- graph that displays the progress over the course of a sprint
+			- story points vs time
+	- Scrum ceremonies (meetings)
+		- https://www.visual-paradigm.com/servlet/editor-content/scrum/what-are-scrum-ceremonies/sites/7/2018/11/the-agile-scrum-framework.png
+		- Sprint planning
+			- meeting to plan the work to be done during a sprint
+			- collaboration of the whole scrum team
+				- assign features/ story pointing(assigning story points to user stories)
+			- ~ 2hrs per week of the sprint
+		- Daily Scrum(daily standups)
+			- daily meeting for the dev team
+				- to check on progress
+					- what did you do yesterday
+					- what are you doing today
+						- include struggles
+					- any blockers
+						- blocker: not being able to do something due to someone else
+		- Sprint review
+			- demo of the product resulting from the sprint , "working software"
+			- Scrum team and the stakeholders collaborate on inspecting what was done and update the product backlog as needed
+				- maybe throw a feature back in the product backlog if needed to be reworked
+		- Sprint retrospective
+			- Scrum team reviews how the sprint went, and create a plan for improvement for the next sprint
