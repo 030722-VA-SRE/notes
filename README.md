@@ -4,6 +4,9 @@
 The environment setup guide for week 1 and 2 can be found [here](https://github.com/022822-VA-SRE/notes/blob/main/setup/env_guide.md).*
 
 ## Training Calendar
+* 03/30
+    * QC (10am ET)
+        * week 2 and 3 topics
 * 03/24
     * Project 3 Showcase:
         - 10:30am ET: I will be providing the link the morning of 
