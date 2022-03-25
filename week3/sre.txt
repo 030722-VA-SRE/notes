@@ -1,0 +1,61 @@
+Site Reliability Engineering (SRE)
+	- approach to operations which uses software as the primary tool for managing systems or improving the system (automation)
+	- core concepts
+		- eliminating toil
+		- working to service levels
+		- managing  failure
+
+Eliminating Toil
+	- mundane, repetive task that does have much value in improving the system
+		- toil can scale with the system
+		- task that could be automated because it follows a strict pattern
+	- As an SRE toil shouldn't be taking more than X% of your time
+		- Google publicly announced 50% for their SRE
+			- Guarantee
+		- Strategic time can be dedicated to reducing/automating toil
+	- Identifying and prioritizing Toil
+		- cost benefit analysis
+			- time spent on automation vs time saved
+		- Toil reduction backlog
+
+Working to Service Levels
+	- Service level agreement (SLA)
+		- target up time for a service that you enter into contract with someone that uses that service
+			- ie: 99.99%
+		- As a company, why x number of 9s
+		- if the agreement is breached, how should we handle it
+	- Service level objectives (SLO)
+		- target goal/objective for the uptime of a service
+		- service health is defined in terms of multiple SLOs
+			- more user focused, based on user experience
+		- ie:
+			- 99.9% of the requests are executed successfully
+			- 90% of the requests take less than .5s
+			- 95% of the requests take less than 2s
+		- have to be achievable, stakeholders, product owner, devs, and SRE team work together to agree on SLO
+	- Error Budget
+		- 100% - SLO
+		- useful time for changing the system
+			- majority of issues arise from updates/config changes
+		- control the releases of the product
+	- Error budget policy
+		- formal document between devs, product owner and sre
+		- describing how to react in order to maintain an SLO
+			- ie: if happens mid period, have a feature freeze and refocus devs on reliability
+	- Service level indicators (SLI)
+		- on going measure of system to make sure that an SLO is met
+			- has to be measurable
+		- availability/success rate
+			- successful requests(status code other than 500s)/number of requests
+		- latency/response time
+			- 90% of the requests take less than .5s
+			- 95% of the requests take less than 2s
+			- percentiles rather than average
+	Service level period
+		- over a time span of different ranges
+			- in general 28 days
+
+Managing Failure
+	- post mortem after every failure that focuses on the root cause of the issue
+		- find a way to prevent the issue from happening again
+		- blame free
