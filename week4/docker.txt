@@ -1,0 +1,33 @@
+Docker
+	- Tool that revolves around the idea of containerization
+		- used to develop and deploy applications using containers
+	- supported on Linux
+		- Toolbox required for other OS
+	- follows a Client Server Architecture
+
+Container
+	- Standardized unit of software
+	- Abstraction at the app layer that packages the code and dependencies together
+		- multiple containers can run on the same Docker engine and share the same OS with one another
+			- lightweight and scalable
+			- each container runs as an isolated process
+			- more efficient use of resources
+		- CONTAINERS ARE DIFFERENT FROM VIRTUAL MACHINES
+
+Terminology
+	- Docker Daemon
+		- background service running on the OS that manages building and running Docker containers
+		- interacted with using the docker client
+	- Docker Client
+		- commandline tool used to interact with the Docker daemon
+	- Dockerfile
+		- a simple text file that contains a list of commands to create a docker image
+			- note: a dockerfile does not have a file extension
+			- FROM [base-image]
+				- image to be built upon/usually runtime environment for an application
+	- Docker Image
+		- blueprint of an application to create a container
+		- includes everything needed to run an application, the artifact, the runtime, dependencies..
+	- Docker Container
+		- a running process, isolated from the host and each other
+		- each container interacts with its own filesystem provided by the docker image
