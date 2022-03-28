@@ -20,14 +20,52 @@ Terminology
 		- interacted with using the docker client
 	- Docker Client
 		- commandline tool used to interact with the Docker daemon
-	- Dockerfile
+	- Dockerfile - https://docs.docker.com/engine/reference/builder/#from
 		- a simple text file that contains a list of commands to create a docker image
 			- note: a dockerfile does not have a file extension
 			- FROM [base-image]
 				- image to be built upon/usually runtime environment for an application
+			- ADD [url]
+				- to add a file from online to a container
+			- COPY [Host Filesystem] [container's filesystem]
+				- use to copy and rename(if desired) files to a container
+			- ENV
+				- used to specify environment variable
+					- can also specify env var at runtime using docker run -e
+			- CMD/RUN
+				- run commands like sudo yum update...
+			- ENTRYPOINT
+				- used to specify the entrypoint of the application
+			- EXPOSE
+				- specifies what port to expose
 	- Docker Image
 		- blueprint of an application to create a container
 		- includes everything needed to run an application, the artifact, the runtime, dependencies..
 	- Docker Container
 		- a running process, isolated from the host and each other
 		- each container interacts with its own filesystem provided by the docker image
+	- Docker volume
+		- preferred way to persist data generated and used by Docker containers
+		- can be shared by containers
+
+Docker Workflow
+	- Dockerfile -> docker build -t [image-name] . -> Docker Image -> docker run -p [host-port]:[container-port] -d (detached mode) [image-name] -> Docker Container
+
+Basic docker commands:
+	- docker
+		- displays a list of available commands
+	- docker ps
+		- displays running containers
+		- -a for all containers
+	- docker images
+		- displays a list of available images
+	- docker build
+	- docker run
+	- docker stop
+	- docker kill
+	- docker logs
+
+Dockerhub
+	- online registry and version control system of docker images
+		- docker pull
+		- docker push
