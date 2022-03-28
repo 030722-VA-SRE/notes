@@ -55,7 +55,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>springdata-demo</finalName>
+		<finalName>henry-demo</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
