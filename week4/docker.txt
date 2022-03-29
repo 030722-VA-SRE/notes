@@ -75,3 +75,17 @@ Multi-stage build
 	- Once a build stage has been executed, that base image can be discarded
 		- artifacts can be selectively copied from one stage to another
 		- this allows us to keep the size of the image down
+
+Docker Volumes
+	- preferred way to persist data generated and used by Docker containers
+	- can be shared by containers and the host
+		- ie: this can represent a folder on docker containers shared with the host machine
+			- could be for logs
+			- could be for db data...
+
+Docker Compose
+	- tool for defining and running multi-container Docker Applications
+		- Container Orchestration
+	- using docker-compose.yml
+		- can specify how containers interact with volumes, networks, and with each other
+		- https://docs.docker.com/compose/

@@ -1,0 +1,36 @@
+slf4j
+	- simple logging facade for Java
+	- provides a series of interfaces to work with different logging implementations
+		- abstraction layer
+			- at development time, the logging framework used might be different than in production
+			- the api will redirect to the underlying implementation
+
+log4j/log4j2/logback
+	- Implementing logging frameworks
+		- implements the logic to perform logging
+	- logback is built into Spring boot
+
+INFO level:
+	- represent business events/processes and whether they were completed successfully
+		- SysAdmins and SRE monitor info logs to track the application status
+			- can monitor these using monitoring software to automate it
+			- can jump in manually in log aggregators and see what is happening
+
+WARN level:
+	- application might be continue, but take extra precautions
+ERROR level:
+	- something has gone wrong and should be investigated
+		- ie: not servicing requests properly
+			- 500 status code
+				- leads to SLI going down/ eating into error budget
+		- log.error("message", throwableObject); // ie: Exception
+FATAL level:
+	- usually rare, results in application failure
+
+Mapped Diagnostic Context(MDC)
+	- provide key value pairs to our logs
+		- maybe attach a user id or something associated to a log message
+		- provide contextual information to our MDC
+	- using thread local
+		- local data in an indivual thread that could be reused
+			- clear context using MDC.clear();

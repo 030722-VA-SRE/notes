@@ -1,0 +1,36 @@
+version: "3.8" # match to docker engine version
+
+services:
+  springdata:
+    # image: kth844/datarest || can specify an image on dockerhub, ie:
+    build: .
+    ports:
+      - 8081:8080
+    environment:
+      # - DB_URL_JAVALIN // by default assigns the value to local environment variables
+      # - DB_USER
+      # - DB_PASS
+      - DB_URL_JAVALIN=jdbc:postgresql://postgres:5432/postgres
+      - DB_USER=postgres
+      - DB_PASS=pass
+    container_name: data-container
+    depends_on:
+      - postgres
+    # deploy:
+    #   replicas: 2 // have to handle naming conflicts, port conflicts
+#    volumes:
+#      - [hostfilesystem]:[containerfilesystem]
+
+  postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=pass # can use env var or .env file
+    container_name: postgres-container
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
+    driver: local

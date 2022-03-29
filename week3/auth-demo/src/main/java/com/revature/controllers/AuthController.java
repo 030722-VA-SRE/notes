@@ -1,5 +1,7 @@
 package com.revature.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -17,7 +19,9 @@ import com.revature.services.AuthService;
 public class AuthController {
 
 	private AuthService as;
-
+	private static Logger log = LoggerFactory.getLogger(AuthController.class);
+	// Better practice to use class logger over root logger as we can specify different logger configuration based on class
+	
 	@Autowired
 	public AuthController(AuthService as) {
 		super();

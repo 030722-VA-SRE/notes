@@ -1,10 +1,11 @@
 package com.revature.controllers;
 
 import java.util.List;
-import java.util.Map;
 
+import org.jboss.logging.MDC;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.dtos.UserDTO;
-import com.revature.exceptions.UserNotFoundException;
 import com.revature.models.User;
 import com.revature.services.UserService;
 
@@ -27,7 +27,8 @@ import com.revature.services.UserService;
 public class UserController {
 
 	private UserService us;
-
+	private static Logger log =LoggerFactory.getLogger(UserController.class);
+	
 	@Autowired
 	public UserController(UserService us) {
 		super();
@@ -44,10 +45,14 @@ public class UserController {
 
 		// this just checks if the token is null, not if it has the right value
 		if (token == null) {
+			log.warn("[insert user info here] tried to access endpoint /users/id");
 			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 		}
 
-		return new ResponseEntity<>(us.getUserById(id), HttpStatus.OK);
+		MDC.put("userToken", token);
+		UserDTO u = us.getUserById(id);
+		MDC.clear();
+		return new ResponseEntity<>(u, HttpStatus.OK);
 
 	}
 

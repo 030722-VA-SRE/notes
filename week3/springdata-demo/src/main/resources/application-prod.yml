@@ -8,3 +8,4 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: validate
+      # ddl-auto: create #allows us to create schema in our postgres container db
