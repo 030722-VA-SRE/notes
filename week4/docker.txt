@@ -69,3 +69,9 @@ Dockerhub
 	- online registry and version control system of docker images
 		- docker pull
 		- docker push
+
+Multi-stage build
+	- Using multiple FROM statements in a Dockerfile to specify different environment for each stage of the build
+	- Once a build stage has been executed, that base image can be discarded
+		- artifacts can be selectively copied from one stage to another
+		- this allows us to keep the size of the image down
