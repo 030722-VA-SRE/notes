@@ -32,7 +32,7 @@ public class AuthService {
 		}
 		
 		LOG.info("User " + user.getUsername() + "'s credentials validated.");
-		// return a "token" in the format of [id]:[role]
+		// return a "token" in the format of [id]:[role], NOT GOOD PRACTICE
 		return user.getId()+":"+user.getRole().toString();
 	}
 	
@@ -55,6 +55,6 @@ public class AuthService {
 		
 		LOG.info("token verified successfully");
 		// could log a user id
-//		MDC.put("userId", principal.getId());
+		MDC.put("userId", principal.getId());
 	}
 }

@@ -34,6 +34,7 @@ public class UserService {
 		 *  the newly UserDto objects are then returned
 		 */
 		List<UserDto> usersDto = users.stream()
+//				.filter(user -> user.getRole().toString().equals("ADMIN"))
 				.map((user) -> new UserDto(user))
 				.collect(Collectors.toList());
 		

@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  promtail:
+    image: grafana/promtail:latest
+    container_name: logging-promtail
+    volumes:
+      - ./promtail/promtail-docker-config.yml:/etc/promtail/docker-config.yaml
+      - ../logs/application.log:/var/log/application.log
+    command: "--config.file=/etc/promtail/docker-config.yaml"
+  loki:
+    image: grafana/loki:latest
+    container_name: logging-loki
+    # command: -config.file=/etc/loki/local-config.yaml
+    ports:
+      - 3100:3100
+  grafana:
+    image: grafana/grafana:latest
+    container_name: logging-grafana
+    # volumes:
+    #   - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+    #   - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+    #   - ./grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml
+    #   - ./grafana/example.json:/var/lib/grafana/dashboards/example.json
+    ports:
+      - 3000:3000
+    depends_on:
+      - loki

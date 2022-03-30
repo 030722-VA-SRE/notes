@@ -28,3 +28,15 @@ Be creative and incorporate other topics into your project, they do not have to 
 * Password hashing
 * JWT
 * MockMvc (Testing the web layer)
+
+## Requirements - Phase 2
+1. Containerize your application and a database instance using Docker and Docker Compose.
+2. Log your application thoroughly using MDC
+    - create a custom pattern
+    - try leveraging different logging levels
+3. Log aggregation using Promtail, Loki, Grafana
+
+## Phase 2 bonus
+    - EC2 deployment
+    - Prometheus
+    - determining SLIs

@@ -4,6 +4,8 @@
 The environment setup guide for week 1 and 2 can be found [here](https://github.com/022822-VA-SRE/notes/blob/main/setup/env_guide.md).*
 
 ## Training Calendar
+* 03/31
+    * Java/Azure showcase - (12:30-1:30 ET)
 * 03/30
     * QC (10am ET)
         * week 2 and 3 topics

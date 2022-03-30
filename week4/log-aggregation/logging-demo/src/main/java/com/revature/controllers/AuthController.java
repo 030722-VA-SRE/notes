@@ -34,7 +34,7 @@ public class AuthController {
 		// best handled as a filter
 		// Generated a request id for new requests to be handled, this id can be attached to logs to show the flow of the request through the application
 		MDC.put("requestId", UUID.randomUUID().toString());
-		
+		LOG.debug("starting login");
 		// generates a token if credentials are correct
 		String token = as.login(username, password);
 
@@ -43,6 +43,7 @@ public class AuthController {
 		
 		hh.set("Authorization", token);
 		
+		LOG.debug("Login terminated successfully");
 		LOG.info("Login successful");
 		// constructor for response entity(body, headers, status)
 		return new ResponseEntity<>("Login successful.", hh, HttpStatus.OK);
