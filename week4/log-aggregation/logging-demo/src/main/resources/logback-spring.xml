@@ -1,0 +1,35 @@
+<configuration>
+
+	<!-- Allows us to leverage default logging settings provided by Spring -->
+	<include
+		resource="org/springframework/boot/logging/logback/defaults.xml" />
+	
+	<!-- Providing a custom pattern to be able to view MDC properties, more details about how to handle MDC in pattern here: https://logback.qos.ch/manual/mdc.html -->
+	<!-- layout guidelines: https://logback.qos.ch/manual/layouts.html -->
+	<property name="CUSTOM_MDC_LOG_PATTERN" value="%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss}}){faint} [ %mdc ] %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}.%M){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}" />
+	
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>./logs/application.log</file>
+
+		<!-- leveraging the logstash encoder to log in JSON format when persisted to files -->
+		<encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+	</appender>
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+ 			<!-- <pattern>${CONSOLE_LOG_PATTERN}</pattern> <== leverages a pattern defined by Spring-->
+ 			<pattern>${CUSTOM_MDC_LOG_PATTERN}</pattern>
+ 		</encoder>
+	</appender>
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />
+	</root>
+	
+	<logger name="com.revature" level="INFO">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+</configuration>
