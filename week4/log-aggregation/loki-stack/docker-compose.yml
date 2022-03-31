@@ -10,18 +10,18 @@ services:
   loki:
     image: grafana/loki:latest
     container_name: logging-loki
-    # command: -config.file=/etc/loki/local-config.yaml
     ports:
       - 3100:3100
   grafana:
     image: grafana/grafana:latest
     container_name: logging-grafana
-    # volumes:
-    #   - ./grafana/grafana.ini:/etc/grafana/grafana.ini
-    #   - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
-    #   - ./grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml
-    #   - ./grafana/example.json:/var/lib/grafana/dashboards/example.json
+    volumes:
+      - grafana-data:/var/lib/grafana
+    # persisting grafana settings
     ports:
       - 3000:3000
     depends_on:
       - loki
+volumes:
+  grafana-data:
+    driver: local

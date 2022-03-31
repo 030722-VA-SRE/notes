@@ -1,0 +1,50 @@
+Logstash Encoder
+	- tool to provide encoders, layouts, and appenders to store logs in JSON or other formats
+		- https://github.com/logfellow/logstash-logback-encoder#including-it-in-your-project
+		- can customize output of logging
+	- JSON logging
+		- text data is unstructured and therefore might be harder to query
+		- JSON logs are more structured and therefore are more machine readable
+			- through key value pair
+
+Promtail
+	- is an agent which ships the contents of local logs to a private Grafana Loki instance or Grafana Cloud. 
+		- usually deployed to every machine that has applications needed to be monitored
+		-  tail logs from two sources: local log files and the systemd journal
+	- features
+		- Log file discovery
+			- discovering applications emitting log lines to files that need to be monitored.
+		- Loki Push API
+		- Labeling and parsing
+			- metadata is determined (filename, etc.) that may be attached to the log line as a label for easier identification when querying logs in Loki.
+		- Shipping
+			-  tailing (continuously reading) the logs from targets
+	- References:
+		- https://grafana.com/docs/loki/latest/clients/promtail/
+		- https://grafana.com/docs/loki/latest/clients/promtail/configuration/
+
+Loki
+	- a log aggregation system designed to store and query logs from all your applications and infrastructure.
+		- is a horizontally scalable, highly available, multi-tenant log aggregation system inspired by Prometheus
+		- does not index the contents of the logs, but rather a set of labels for each log stream
+		- LogQL, to explore your logs. Run LogQL queries directly within Grafana
+			- https://megamorf.gitlab.io/cheat-sheets/loki/
+			- https://grafana.com/docs/loki/latest/logql/ 	
+		- Set up alerting rules for Loki to evaluate on your incoming log data
+	- features of Loki
+		- easy to get started, can send logs in any format, from any source, using a wide array of clients
+		- 100% persistence to object storage high throughput and cost-effective & durable storage
+		- building metrics and generate alerts from your log lines
+		- tail your logs in realtime to see the logs as they come into the system, view logs for a particular date, etc.
+		- natively integrates with Prometheus, Grafana and K8s so can seamlessly move between metrics, logs and traces within a single UI
+
+Grafana
+	- is open source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics, logs, and traces no matter where they are stored. It provides you with tools to turn your time-series database (TSDB) data into insightful graphs and visualizations.
+	- documentation:
+		- https://grafana.com/docs/grafana/latest/introduction/
+
+Docker plugin for loki
+	- allows us to send docker logs to loki
+		- https://grafana.com/docs/loki/latest/clients/docker-driver/
+		- https://grafana.com/docs/loki/latest/clients/docker-driver/configuration/
+	- if on a windows device, daemon.json can be accessed via Docker Desktop
