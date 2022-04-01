@@ -22,6 +22,16 @@ services:
       - 3000:3000
     depends_on:
       - loki
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    container_name: logging-prometheus
 volumes:
   grafana-data:
+    driver: local
+  prometheus-data:
     driver: local

@@ -1,0 +1,34 @@
+Spring Boot actuator
+	- provides metrics about the application
+in application.yml:
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus
+
+Micrometer
+	- provides a simple facade over the instrumentation clients for the most popular monitoring systems
+		- allowing you to instrument your JVM-based application code without vendor lock-in
+			- Think SLF4J, but for application metrics! 
+	- Application metrics recorded by Micrometer are intended to be used to observe, alert, and react to the current/recent operational state of your environment
+	- custom metrics:
+		- https://www.baeldung.com/micrometer
+
+Prometheus
+	- is an open-source systems monitoring and alerting toolkit originally built at SoundCloud. 
+	- collects and stores its metrics as time series data, 
+		- i.e. metrics information is stored with the timestamp at which it was recorded, alongside optional key-value pairs called labels
+
+	- features
+		- a multi-dimensional data model with time series data identified by metric name and key/value pairs
+		- PromQL, a flexible query language to leverage this dimensionality
+		- time series collection happens via a pull model over HTTP
+			- pushing time series is supported via an intermediary gateway
+		- targets are discovered via service discovery or static configuration
+		- multiple modes of graphing and dashboarding support
+	- architecture
+		- https://prometheus.io/docs/introduction/overview/
+	- read into it:
+		- https://prometheus.io/docs/alerting/latest/overview/
+		- https://prometheus.io/docs/concepts/metric_types/

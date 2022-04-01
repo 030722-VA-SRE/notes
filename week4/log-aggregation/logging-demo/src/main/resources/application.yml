@@ -8,3 +8,9 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: validate
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus
