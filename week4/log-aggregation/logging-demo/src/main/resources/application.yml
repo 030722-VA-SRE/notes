@@ -14,3 +14,7 @@ management:
     web:
       exposure:
         include: health, metrics, prometheus
+  metrics:
+    distribution:
+      percentiles-histogram.http.server.requests: true
+      percentiles.http.server.requests: 0.5, 0.9, 0.95, 0.99, 0.999
