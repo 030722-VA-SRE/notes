@@ -1,0 +1,10 @@
+route:
+  receiver: 'slack-notifications'
+
+receivers:
+- name: 'slack-notifications'
+  slack_configs:
+  - channel: test-alerts
+    send_resolved: true
+    username: 'Karl'
+    api_url: https://hooks.slack.com/services/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

@@ -1,0 +1,36 @@
+Alerts
+	- arise from notifications that the SLI indicates that the error budget might get spent
+		- SRE team tries to protect the SLO
+	- monitoring systems constantly monitoring our SLIs
+		- capture SLO via alerting rules
+			- used to generate timely alerts to diagnose and fix issues
+			- configured to alert when the SLI starts to threaten the SLO
+				- based on the level of importance cause cause
+					- a ticket if can wait
+					- paging the on call SRE member
+			- too strict/too loose of rules can cause issues
+				- "too noisy"
+					- too many alerts that do not result in an incident
+				- too reactive
+					- SLO is in danger before the alert is triggered
+	- Alerting concepts
+		- precision
+			- to only trigger alerts on significant events
+				- 100% precision means that every alert is a significant event
+		- recall
+			- how many significant events actually triggered an alert
+				- 100% recall means that every significant event triggered an alert 
+		- detection time
+			- time to trigger the alert
+		- reset time
+			- time to stop the alerting after the significant event has died down
+
+Prometheus alertmanager
+	- handles alerts sent by client applications such as the Prometheus server
+	- takes care of deduplicating, grouping, and routing them to the correct receiver integration (Slack)
+	- https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
+
+View Prometheus
+	- localhost:9090
+View AlertManager
+	- localhost:9093
