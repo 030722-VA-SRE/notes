@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+  labels:
+    app: hello # NOT RELATED TO THE PODS THEMSELVES, used for grouping and such in other tools
+spec: # spec for deployment object
+  replicas: 5
+  selector:
+    matchLabels:
+      app: hello-demo # to know which pod to work on, has to match labels in the template
+  template: # describes to the pods to be created
+    metadata:
+      labels:
+        app: hello-demo
+    spec: # spec for the pod
+      containers:
+        - name: hello
+          image: kth844/hello-demo 
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080 #has to match ports from the application

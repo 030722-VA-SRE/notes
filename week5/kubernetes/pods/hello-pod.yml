@@ -1,0 +1,17 @@
+apiVersion: v1 # if in the core group, no need to add the group name
+kind: Pod # kind of Kubernetes object
+metadata: 
+  name: hello-pod
+  labels:
+    app: hello-demo
+spec:
+  # restartPolicy: Never
+  containers:
+  - name: hello
+    image: kth844/hello-demo 
+    # resources:
+    #   limits:
+    #     memory: "128Mi"
+    #     cpu: "500m"
+    ports:
+      - containerPort: 8080 #has to match ports from the application

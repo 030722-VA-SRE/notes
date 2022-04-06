@@ -1,0 +1,84 @@
+kubectl
+	- also referred to as kubecontrol
+	- program used to run on a device and access/manage a kubernetes cluster
+	- hidden file with user, cluster, and context information
+		- ~/.kube/config
+		- context
+			- indicates a cluster to manage and a valid user account for that cluster
+	- NOTE:
+		- when installed via Docker Desktop, have access to a single node
+			- dev and test only
+
+Kubernetes Cluster
+	- set of nodes that run and managed containerized applications
+
+Volumes
+	- permanent data storage that can attach to one or more pods
+
+Namespace
+	- partitioning a kubernetes cluster
+	- kind of like db schemas for kubernetes
+		- objects in different namespaces can interact but don't have to
+
+versions
+	- if just v[x]
+		- feature is considered generally available (GA) and stable
+			- production ready
+	- alpha refers to new features
+		- can be the wild west
+		- usually for testing and prototyping
+			- v1alpha1
+				- the first alpha release for version 1 of that feature
+	- beta
+		- new features are starting to take shape
+		- closer to version release
+	- in Kubernetes, objects are separated in different groups
+		- ie: batch, core, apps
+		- core is from the older version of Kubernetes
+			- don't need to include core group in apiVersion
+kubectl commands
+
+	- kubectl version
+	- kubectl apply -f [somefile].yml
+		- f indicates declarative
+	- kubectl get [objects]
+		- -o wide
+		- --watch
+	- kubectl describe [objects]
+	- kubectl delete [object] [name]
+	- kubectl logs []
+
+Service objects
+	- defined in a manifest file
+	- allows for
+		- access to a pod from outside of the cluster
+		- access to a pod from within the cluster
+
+	- when a service is created, it is assigned a static ip address by k8s
+		- clusterIp
+	- name gets registered with a cluster dns 
+		- core dns controller that runs loops looking for newly created services
+			- assigns a name to the service for their cluster ip
+		- when pods make requests, the requests are resolved via the internal/cluster DNS service
+
+Types of services
+	- ClusterIp
+		- default
+		- stable ip address within a cluster
+		- allows a request to reach a set of pods once inside of the cluster
+	- NodePort
+		- external access via nodes
+			- ie: outside of the cluster
+	- LoadBalancer
+		- built on top of clusterip and nodeport
+		- seamlessly integrates with cloud providers and their load balancers
+			- pods are exposed via loadbalancers
+
+Deployments
+	- are objects in the kubernetes API
+	- self-healing, updates/rollbacks 
+		- replicaset
+			- in charge of self healing
+			- if a pod goes down, creates one to replace
+			- also an object
+			- wrapped inside of deployment
