@@ -1,0 +1,33 @@
+Kubernetes Review week 5:
+
+Docker Review
+1.	What is containerization?
+2.	How are containers different from virtual machines?
+3.	What is a Docker image? container?
+4.	List the steps to create a Docker image and spin up a container
+5.	What is the relevance of the Dockerfile to this process? List some keywords in the Dockerfile
+6.	What is the benefit to an image being built in Layers?
+7.	What are some other Docker commands?
+8.	What is a container registry? How would you retrieve and upload images to DockerHub?
+9.	What is Docker compose and why is it useful?
+10.	If you want to store state for a container, how does Docker recommend doing that?
+
+
+Kubernetes
+1.	What is container orchestration? How does Kubernetes help with this?
+2.	What is a cluster? pod? A service? A deployment? A replicaSet?
+	- write an example of a pod.yml, service.yml, and a deployment.yml
+3.	What is the difference between a pod and a node?
+4.	What containers would be grouped together in a pod?
+5.	What is the purpose of the master and worker nodes on Kubernetes?
+6.	What is the Kubernetes API?
+7. 	What are the different components that make up a master node?
+8. 	What are the different components that make up a worker node?
+9. 	What are the different types of services?
+
+-- Food for thought
+	How would you use Kubernetes to deploy a Spring boot application?
+		- Role of Docker
+		- Making request to that container
+		- self healing
+
