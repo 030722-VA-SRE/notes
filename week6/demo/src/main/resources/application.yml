@@ -1,0 +1,23 @@
+server:
+  port: 8080 # by default, can be overriden
+  
+spring:
+  application:
+    name: demo
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"

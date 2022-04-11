@@ -1,0 +1,43 @@
+Lombok
+	- Code generation tool
+		- annotate a class to generate code
+			- @Setter
+			- @Getter...
+			- @Data
+			- @Slf4j
+	- Setting up Lombok with your ide
+		- navigate to ~/.m2/repository/org/projectlombok/lombok/[version-lombok]
+		- run: java -jar lombok-[version].jar
+		- in the gui, navigate to the IDE location on your device and select it
+			- if scoop was used to install the ide, can be found in ~/scoop/apps
+		- click install/update
+		- restart ide
+
+Volumes
+	- by default, containers are ephemeral
+		- when a container crashes kubelet restart/ recreate it however the files might get lost
+	- containers within the same pod might need to share files with one another
+	- in k8s volumes are pod centric
+		- by default a volume lives in a pod
+		- can provide access to volume to containers within that pod
+		- however when a pod is removed, so is the volume
+
+Persitent volumes (PV)
+	- k8s resources used to manage durable storage within a cluster
+		- allocated and managed at the cluster level rather than the pod level 
+			- can use cloud providers like AWS, PV can be allocated as storage (EBS)
+	- can be provisioned and managed dynamically
+		- don't have to do it manually
+	- Persistent Volume Claim(PVC)
+		- pods use PVC to request PV
+		- PVC specifies size, access mode, storage class... for PV
+			- if found, PV can be bound to PVC
+
+Ingress
+	- API object
+	- exposes HTTP and HTTPS routes from outside the cluster to services within the cluster
+		- Traffic routing is controlled by rules defined on the Ingress resource
+	- Ingress may provide load balancing, SSL termination and name-based virtual hosting
+		-  must have an Ingress controller to satisfy an Ingress. Only creating an Ingress resource has no effect.
+	- Ingress set with Docker Desktop
+		- https://kubernetes.github.io/ingress-nginx/deploy/#docker-desktop
