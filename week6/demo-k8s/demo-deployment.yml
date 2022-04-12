@@ -21,7 +21,15 @@ spec:
           - name: DB_URL
             value: jdbc:postgresql://postgres-service:5432/postgres
           - name: DB_USER
-            value: postgres
+            # value: postgres
+#kubectl create secret generic demo-credentials \
+# --from-literal=username=postgres \
+# --from-literal=...=... \
+            valueFrom:
+              secretKeyRef:
+                key: username
+                name: demo-credentials
+                optional: false
           - name: DB_PASS
             value: pass
           # could add an env var for spring profile value: prod

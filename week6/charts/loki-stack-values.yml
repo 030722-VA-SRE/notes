@@ -1,0 +1,24 @@
+loki:
+  enabled: true
+  isDefault: true
+  persistence:
+    enabled: true
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+     cpu: 100m
+     memory: 128Mi 
+
+promtail:
+  enabled: true
+
+grafana:
+  enabled: true
+  sidecar:
+    datasources:
+      enabled: true
+  image:
+    tag: 8.3.5
+

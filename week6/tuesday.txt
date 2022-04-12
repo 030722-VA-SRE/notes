@@ -1,0 +1,32 @@
+Helm
+	- package (chart) manager for kubernetes
+		- chart is a bundle of information necessary to create an instance of a Kubernetes application.
+		- config contains configuration information that can be merged into a packaged chart to create a releasable object.
+		- release is a running instance of a chart, combined with a specific config.
+	- allows user to install/uninstall charts into an existing Kubernetes cluster
+		- packages yml files (K8s api objects) and distributes them
+	- Helm installation:
+		- https://helm.sh/docs/intro/install/
+			- scoop is available
+basic loki-stack deployment using helm
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+helm search repo grafana
+# 2 ways to retrieve values.yml to be overriden
+
+1.	- go to https://github.com/grafana/helm-charts/blob/main/charts/loki-stack/values.yaml
+	- copy and paste locally into a yml file
+	- override desired config
+
+2. 	- helm show values grafana/loki-stack > my-values.yml
+	- override desired config in my-values.yml
+
+helm install [name] grafana/loki-stack --values my-values.yml -n [new-namespace] --create-namaespace
+helm list -n [new-namespace-name]
+
+- To get the admin password for the Grafana pod, run the following command:
+kubectl get secret --namespace <YOUR-NAMESPACE> loki-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+- To access the Grafana UI, run the following command: # However for project, use Ingress instead of port forwarding
+kubectl port-forward --namespace <YOUR-NAMESPACE> service/loki-grafana 3000:80
+
