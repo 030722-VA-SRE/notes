@@ -17,10 +17,10 @@ spec:
             name: demo-service
             port: 
               number: 8080
-      # - pathType: Prefix
-      #   path: "/api/(.*)"
-      #   backend:
-      #     service:
-      #       name: api-service
-      #       port: 
-      #         number: 8080
+      - pathType: Prefix
+        path: "/grafana/?(.*)"
+        backend:
+          service:
+            name: prom-grafana
+            port: 
+              number: 80
