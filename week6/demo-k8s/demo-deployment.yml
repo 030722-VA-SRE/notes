@@ -3,7 +3,13 @@ kind: Deployment
 metadata:
   name: demo-deployment
 spec:
-  replicas: 2
+  replicas: 10
+  minReadySeconds: 5
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   selector:
     matchLabels:
       app: demo-app
@@ -14,7 +20,7 @@ spec:
     spec:
       containers:
       - name: demo-container
-        image: kth844/demo:1
+        image: kth844/demo:2
         ports:
         - containerPort: 8080
         env:

@@ -19,6 +19,6 @@ public class HelloController {
 		String ipAddress = InetAddress.getLocalHost().getHostAddress();
 		String port = env.getProperty("local.server.port");
 		
-		return String.format("Hello from %s:%s", ipAddress, port);
+		return String.format("Hello(version: 2) from %s:%s", ipAddress, port);
 	}
 }

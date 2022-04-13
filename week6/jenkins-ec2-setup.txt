@@ -1,0 +1,38 @@
+From a terminal:
+ssh -i [path]/[to]/[pemfile] ec2-user@[your-ec2-dns.amazonaws.com]
+
+/home/ec2-user is where you are
+
+
+====== EC2 SETUP ===========
+sudo yum update -y
+
+sudo yum install java-1.8.0-openjdk-devel -y
+
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
+
+sudo yum install git -y
+
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import http://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum install -y jenkins-2.289.3-1.1
+
+sudo service jenkins start
+	- Setting up jenkins
+
+sudo yum install docker -y
+sudo service docker start
+
+sudo usermod -a -G docker jenkins
+sudo usermod -a -G docker ec2-user
+
+sudo dd if=/dev/zero of=/swapfile bs=128M count=8
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile swap swap defaults 0 0' | sudo tee -a /etc/fstab 
+
+sudo chmod 666 /var/run/docker.sock

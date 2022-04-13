@@ -1,0 +1,65 @@
+Updating deployments
+	- by default Kubernetes leverages a RollingUpdate strategy
+		- maxUnavailable
+			- maximum number/percentage of pods unavailable
+		- maxSurge
+			- maximum number/percentage of pods over the number of replicas specified
+	- kubernetes keeps old replica sets (ie: for previous versions) for ease of rolling back
+	- can also specify
+		- minReadySeconds
+			- how long for a pod to be considered "ready"
+	- to rollout an update
+		- kubectl apply -f [updated-deployment-file].yml
+	- to watch in real time
+		- kubectl get pods --watch
+	- status
+		- kubectl rollout status deployment [deployment-name]
+	- rollback
+		- kubectl rollout undo deployment [deployment-name] 
+
+DevOps
+	- in traditional models the development team and the operations teams have separate responsibilities and goals
+		- can cause frictions between the teams
+			- dev team wants more features/rapid change, high velocity
+			- ops team prefer a static production environment to reduce the chances of dropping the availability of the application
+				- new releases can be a major cause of dropping the availability of the app
+	- set of practices that combines software development with IT operations
+		- goal is to create "high quality code" more efficiently 
+
+DevOps practices
+	- Continuous Integration (CI)
+		- practice of consistently merging source code, often in a centralized location/repository
+			- prevent large error from accumulating
+			- to make sure that people are working on the latest codebase
+	- Continuous Delivery (CD)
+		- Automating the process of preparing for deployment
+			- each commit/pushes/merge will be tested and prepared for deployment
+			- Having the application in a constant state of being ready to be deployed "at the push of a button"
+				- requires human intervention for last step
+	- Continuous Deployment (CD)
+		- once code is integrated and passes every stages of the continuous delivery pipeline, releases/deploys to production
+			- without the button
+			- does not need human intervention
+		- can lead to issues being introduced to the production system
+			- benefits: rapid iteration, more immediate feedback to changes
+			- SLOs are not 100%
+				- as long as SLO are met, no worries
+				- otherwise might need to pause releases and quickly rollback
+
+DevOps Pipeline
+	- set of automated processes and tools that allow developers and operators to collaborate in building and deploying code
+		- build, test, deploy, maintain software
+	- series of steps to achieve continuous delivery/deployment
+		- for continuous delivery
+			- testing, code quality analysis,...
+			- at the end of the pipeline, a final (simple) action is needed to deploy the application
+				- saying yes/no
+		- for continuous deployment
+			- should be able to abort if needed, but in general does not require human interaction
+
+
+
+
+
+
+
