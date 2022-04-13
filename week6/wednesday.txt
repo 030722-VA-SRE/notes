@@ -57,6 +57,12 @@ DevOps Pipeline
 		- for continuous deployment
 			- should be able to abort if needed, but in general does not require human interaction
 
+EC2 Provisioning
+	- tags:
+		- https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html
+	- vpc:
+		- https://aws.amazon.com/vpc/
+
 
 
 

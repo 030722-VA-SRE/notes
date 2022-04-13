@@ -36,3 +36,14 @@ sudo swapon /swapfile
 echo '/swapfile swap swap defaults 0 0' | sudo tee -a /etc/fstab 
 
 sudo chmod 666 /var/run/docker.sock
+
+-------------------------------------------------------
+Jenkins is now accessible on port :8080
+Go to:your-ec2-dns.amazonaws.com:8080
+if unable to connect to your ec2, check your security groups
+Jenkins' initial password can be retrieved from the EC2 using: 
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+--> install recommended plugins
+--> setup admin user
+--> login using master password
