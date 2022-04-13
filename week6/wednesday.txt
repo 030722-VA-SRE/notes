@@ -63,8 +63,40 @@ EC2 Provisioning
 	- vpc:
 		- https://aws.amazon.com/vpc/
 
-
-
+Maven (review)
+	- Dependency management tool and a build automation tool
+	- Lifecycle
+		- clean
+		- default
+			- validate
+			- compile
+			- test
+			- package <- generates an artifact (.jar) (mvn package -Pprod)
+			- verify
+			- install
+		- site
+Jenkins
+	- open-sourced automation server/build automation tool
+		- allows us to automate the CI/CD/CD processes
+	- plugins allow Jenkins to add functionality
+		- ie: maven, gradle, git..
+	- Jenkins Job
+		- project managed by Jenkins, set of repeatable steps to be automated by Jenkins
+			- pulling code from Github, packaging, creating image...
+			- build trigger
+				- defines when the job should be run/executed
+					- can do manually
+					- set up a webhook using github
+						- allows Jenkins server to be notified when a branch has been updated
+			- Build status
+				- green: success
+				- yellow: unstable
+				- red: failure
+			- weather forecast:
+				- how often builds fail lately
+	- Jenkinsfile
+		- text file that contains the definition of a Jenkins pipeline
+			- added to a git repository
 
 
 

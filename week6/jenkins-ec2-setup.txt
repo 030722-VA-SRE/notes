@@ -47,3 +47,52 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 --> install recommended plugins
 --> setup admin user
 --> login using master password
+
+
+----- Create Job -----
+
+--> new item
+--> [enter name]
+--> Freestyle Project
+--> Discard old builds
+	- Max # of builds to keep 2 (save resources)
+--> Select Git as scm
+	- Make sure that repo is public, might lead to issues if private
+--> enter repo url
+	- don't forget .git at the end
+--> specify branch to build under branch specifer
+	- main (prod...)
+--> select Github Hook trigger for GITScm polling
+	- enable webhooks from Github
+		- go to the repo
+		- Settings
+		- webhooks
+		- add webhooks
+			- payload url
+				- http://[ec2-address]:8080/github-webhook/
+				- make sure to add that "/" at the end
+		- add webhook
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

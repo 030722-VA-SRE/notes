@@ -4,6 +4,9 @@
 The environment setup guide for week 1 and 2 can be found [here](https://github.com/022822-VA-SRE/notes/blob/main/setup/env_guide.md).*
 
 ## Training Calendar
+* 04/14
+    * 10:30am - Java Enterprise Showcase
+    * 3:15 pm - Meeting with Ben (Sales team)
 * 04/05
     * Info session (10am)
 * 03/31
