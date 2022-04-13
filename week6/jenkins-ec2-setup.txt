@@ -72,6 +72,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 				- http://[ec2-address]:8080/github-webhook/
 				- make sure to add that "/" at the end
 		- add webhook
+	- Edit your EC2 security groups to allow inbound rules from Github (https://api.github.com/meta)
 
 
 
