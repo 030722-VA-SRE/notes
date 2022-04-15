@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: postgres-pod
+  namespace: kevin-tranhuu
   labels:
     app: postgres
 spec:

@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: demo-ingress
+  namespace: kevin-tranhuu
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/user-regex: "true"
@@ -17,10 +18,10 @@ spec:
             name: demo-service
             port: 
               number: 8080
-      - pathType: Prefix
-        path: "/grafana/?(.*)"
-        backend:
-          service:
-            name: prom-grafana
-            port: 
-              number: 80
+      # - pathType: Prefix
+      #   path: "/grafana/?(.*)"
+      #   backend:
+      #     service:
+      #       name: prom-grafana
+      #       port: 
+      #         number: 80

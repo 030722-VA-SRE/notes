@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: demo-svc-monitor
+  namespace: kevin-tranhuu
+  labels:
+    app: demo-app
+    release: prom
+spec:
+  endpoints:
+  - path: /actuator/prometheus
+    interval: 15s
+    port: http
+  namespaceSelector:
+    matchNames:
+    - kevin-tranhuu
+  selector:
+    matchLabels:
+      app: demo-app

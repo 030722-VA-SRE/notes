@@ -2,6 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: postgres-service
+  namespace: kevin-tranhuu
+  labels:
+    app: postgres
 spec:
   type: ClusterIP # cluster ip by default if not declared
   selector:
