@@ -1,0 +1,21 @@
+Prometheus Operator and service monitors
+	- background information on how Prometheus Operator works:
+		- https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/getting-started.md
+		- https://managedkube.com/prometheus/operator/servicemonitor/troubleshooting/2019/11/07/prometheus-operator-servicemonitor-troubleshooting.html
+	- To be boiled down, service monitors watch kubernetes services for metrics to be sent to prometheus
+	- The class example has been updated to be using a service monitor on Github
+		- you can also look at the configuration on my namespace on our cluster
+			- kubectl describe servicemonitors -n kevin-tranhuu
+	- while trying to set up your service monitor, you can track whether or not Prometheus is detecting your service monitor via port-forwarding
+		- kubectl port-forward svc/prom-kube-prometheus-stack-prometheus -n default 9090:9090
+			- basically this opens up a "tunnel" from the prometheus service in our cluster to your computer
+				- meaning that this service is now available on port 9090 of your device (localhost:9090)
+		- go to localhost:9090
+		- navigate to status => targets
+			- you should now see the current targets for Prometheus
+				- meaning the apps/objects getting their metrics scraped
+			- in the list you should find
+				- serviceMonitor/kevin-tranhuu/demo-svc-monitor/0 (2/2 up)
+					- which is my monitor and indicates that it's scraping metrics from 2 instances
+			- if yours is set up properly, you should see something similar for yours
+		- metrics should then start being visible on Grafana
