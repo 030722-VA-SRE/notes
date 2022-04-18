@@ -1,0 +1,25 @@
+Jenkins
+	- pipeline - triggers on push to main
+	- Code quality step
+		- 
+	- maven clean/package
+	- docker build
+	- docker push to dockerhub
+	- approval step
+		- https://www.jenkins.io/doc/pipeline/steps/pipeline-input-step/
+	- deploy to kubernetes
+
+Jenkins Agent
+	- can be other servers (physical, vm, pod...) performing Jenkins jobs for Jenkins server
+	- primary Jenkins server manages scheduling/delegating the jobs
+
+Installing Java 11 on ec2
+- sudo amazon-linux-extras install java-openjdk11
+- sudo alternatives --config java
+	- select the desired version
+- sudo yum install java-11-openjdk-devel
+- sudo alternatives --config javac
+	- select the desired version
+
+- sudo service jenkins restart
+

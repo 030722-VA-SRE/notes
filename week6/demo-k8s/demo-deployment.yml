@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: demo-container
-        image: kth844/demo:3
+        image: kth844/demo:4
         ports:
         - containerPort: 8080
         env:
@@ -31,14 +31,25 @@ spec:
             value: jdbc:postgresql://postgres-service:5432/postgres
           - name: DB_USER
             value: postgres
-#kubectl create secret generic demo-credentials \
-# --from-literal=username=postgres \
-# --from-literal=...=... \
-            # valueFrom:
-            #   secretKeyRef:
-            #     key: username
-            #     name: demo-credentials
-            #     optional: false
           - name: DB_PASS
             value: pass
           # could add an env var for spring profile value: prod
+        volumeMounts:
+          - mountPath: /logs
+            name: logs
+      - name: promtail-container
+        image: grafana/promtail
+        args:
+        - -config.file=/etc/promtail/promtail.yml
+        volumeMounts:
+        - name: logs
+          mountPath: /logs
+        - name: promtail-config
+          mountPath: /etc/promtail
+      volumes:
+        - name: logs
+          emptyDir: {}
+        - name: promtail-config
+          configMap:
+            name: promtail-config
+            

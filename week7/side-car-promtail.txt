@@ -1,0 +1,23 @@
+Promtail sidecar
+	- https://grafana.com/docs/loki/latest/clients/promtail/installation/
+	- promtail is an agent in charge of sending application logs to Loki
+		- currently we have a Promtail instance running as a daemonset for the cluster which captures all syslogs
+			- since this is cluster wide for all p2s the configuration is kept broad
+		- to send log files to Loki and customize labels/log entries, for this project use promtail as a sidecar for your application
+			- meaning that a promtail container is going to run on the same pod as your application
+				- the two containers can share a volume for the logs
+				- Promtail can send them to Loki based on some configuration
+
+	- What is needed
+		- adding Promtail to the application deployment
+		- a Config Map to pass in promtail.yml (configuration for promtail)
+		- a volume to share the logs between application and promtail
+			- regular volume is fine here
+		- an external service for Loki
+			- by default, pods communicate with pods within the same namespace
+				- since Loki is running on the default namespace, an external service will be used to send data to it
+	- Useful debug commands
+		- kubectl describe
+		- kubectl logs [podname] [containername] [namespace]
+		- kubectl exec -it -n [namespace] [podname] -c [containername] -- bash
+			- to navigate the container's file system 
