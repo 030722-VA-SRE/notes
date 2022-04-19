@@ -1,0 +1,59 @@
+Blue/Green Deployment
+	- 2 copies of the production environment
+		- labeled "blue" and "green"
+	- the current production system is only one environment at a time
+		- either the blue one or the green one
+	- when an update/a release is made, the release is done to the environment not currently in use
+		- if the production system was the green env, the release would be made to the blue environment
+	- then, as the systems are being monitored, traffic is shifted from the old environment to the new release
+		- if goes well, fully shift the traffic
+			- otherwise, rollback to the previous environment
+	- https://semaphoreci.com/blog/continuous-blue-green-deployments-with-kubernetes
+
+Canary Deployment
+	- new versions are released as a "canary"
+		- traffic is routed to the "canary" and is monitored
+		- if the deployment behaves well, the capacity of the canary deployment is increased while decreasing the capacity of the original version
+		- once all of the traffic is routed to the canary, the canary becomes the new production system
+	- https://phoenixnap.com/kb/kubernetes-canary-deployments
+
+In general, if something goes wrong during a deployment regardless of strategy, rollback to the previous version.
+	- traffic is reverted to the original environment
+
+IAM
+	- allows us to manage access to AWS resources
+	- Creating IAM user (for terraform demo)
+		- IAM dashboard
+			- Users
+				- Add users
+					- provide username
+					- select access key - programatic access
+				- Next: Permissions
+					- attach existing policies directly -https://eksctl.io/usage/minimum-iam-policies/
+						- EC2FullAccess
+						- CloudFormationFullAccess
+						- IAMFullAccess
+				- Next tags
+					- add tags relevant to the resource
+				- Create User 
+					- SAVE THE ACCESS KEY AND SECRET
+				- For demo sake, create a full access policy for eks service and give it to the user
+
+	- configure aws cli
+		- aws configure
+			- pass in credentials
+	- https://learn.hashicorp.com/tutorials/terraform/eks
+Terraform
+	- an open-source infrastructure as code (IaC) tool that makes the process of deploying application more repeatable via terraform files
+		- can be used with a variety of cloud providers and uses easy to read code/commands
+	- Infrastructure as Code
+		- allows you to write scripts/code that describes the state of a deployed infrastructure
+			- servers, vms, conainers, clusters, rds, vpc, security groups
+		- it builds upon the DevOps principle of automating more of the process to allow for more consistency and reliability
+	- Terraform workflow consists of three stages:
+		- Write:
+			- define resources, which may be across multiple cloud providers and services.
+		- Plan: 
+			-c reates an execution plan describing the infrastructure it will create, update, or destroy based on the existing infrastructure and your configuration.
+		- Apply: 
+			- On approval, performs the proposed operations in the correct order, respecting any resource dependencies. 

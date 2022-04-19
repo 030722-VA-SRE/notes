@@ -4,6 +4,8 @@
 The environment setup guide for week 1 and 2 can be found [here](https://github.com/022822-VA-SRE/notes/blob/main/setup/env_guide.md).*
 
 ## Training Calendar
+* 04/20 
+    * 11am - QC - Docker, Kubernetes, Grafana, Prometheus, DevOps (concept and maybe jenkins concepts)
 * 04/15
     * 1pm - Fidelity M&G
 * 04/14
