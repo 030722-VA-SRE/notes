@@ -1,0 +1,9 @@
+Apache JMeter
+	- designed to load test functional behavior and measure performance
+	- can be used to simulate a heavy load on a server, group of servers, network or object to test its strength or to analyze overall performance under different load types
+	- Apache JMeter features include:
+		- Ability to load and performance test many different applications/server/protocol types:
+		- Web - HTTP, HTTPS (Java, NodeJS, PHP, ASP.NET, …)
+		- SOAP / REST Webservices
+
+	- ref:	https://jmeter.apache.org/usermanual/index.html
