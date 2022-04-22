@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-deployment
+  labels: 
+    name: demo-app
+spec:
+  replicas: 2
+  minReadySeconds: 5
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      labels:
+        app: demo-app
+    spec:
+      containers:
+      - name: demo-container
+        image: kth844/pinpoint-demo:latest
+        ports:
+        - containerPort: 8080
+        env:
+          - name: DB_URL_DEMO_APP
+            value: db-url-value #Use secret
+          - name: DB_USER_DEMO_APP
+            value: db-user-value #Use secret
+          - name: DB_PASS_DEMO_APP
+            value: db-pass-value #Use secret
+          # could add an env var for spring profile value: prod
+        volumeMounts:
+          - mountPath: /logs
+            name: logs
+        imagePullPolicy: Always
+      volumes:
+        - name: logs
+          emptyDir: {}
+      
