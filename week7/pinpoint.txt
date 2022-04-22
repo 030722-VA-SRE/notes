@@ -1,0 +1,78 @@
+Pinpoint:
+	- tool for monitoring distributed systems and tracing transactions across applications
+		- viewing the topologies of the systems and visualizing how components interact
+		- monitoring active threads
+		- visualising request counts and outcome
+		- viewing call stack for methods
+		- minimal performance impact
+	- Java agents 
+		- special type of class that use the Java Instrumentation API to intercept applications running on the JVM, modifying their bytecode.
+
+Pinpoint set up:
+	- documentation: https://pinpoint-apm.github.io/pinpoint/
+	- NOTE: these steps have been tested on a localcluster all in the default namespace
+		- assuming you have your cluster set up
+		- have helm installed
+		- PLEASE CHECK WHICH CONTEXT YOU'RE USING
+			- kubectl config current-context
+	- Steps:
+		- install pinpoint in your Cluster (using helm)
+		- update configuration for pinpoint Java Agent
+		- update Dockerfile
+	- Pinpoint set up using Helm
+		- example helm files: 
+		- The structure of Pinpoint can found here:  
+			- https://pinpoint-apm.github.io/pinpoint/overview.html
+				- Pinpoint Collector
+					- aggregate metrics from profiled application
+					- receives data sent by Pinpoint Agent
+				- HBase Storage
+					- stores metrics collected by Pinpoint Collector
+				- Pinpoint Web UI
+					- graphical interface visible in web browser
+				- Pinpoint Agent
+					- Java agent running on the host JVM tracking JVM metrics
+					- Sends data to Pinpoint Collector
+					- configured via pinpoint.config file
+						- what/how often to capture
+						- Pinpoint Collector location
+				- Pinpoint Collector, HBase Storage, Pinpoint Web UI can be configured via Helm
+				- Pinpoint Agent needs to be ran on the host JVM (alongside app)
+			- Retrieve Helm charts to configure (https://github.com/pinpoint-apm/pinpoint-kubernetes)
+				- git clone https://github.com/pinpoint-apm/pinpoint-kubernetes.git
+			- navigate into pinpoint directory
+				- cd pinpoint
+			- Here all of the files necessary for the Helm release can be found, one of the dependencies' link is broken
+				- edit Chart.yml
+					- dependencies, hdft, repository link: https://gradiant.github.io/bigdata-charts/
+					- https://github.com/pinpoint-apm/pinpoint-kubernetes/blob/73a5025596d18bd9f5c69bcf1b2227aeb93a54e6/pinpoint/Chart.yaml#L17
+			- navigate into the charts directory
+				- cd charts
+			- Here custom configuration for the Pinpoint elements can be provided by overriding default Helm values
+			- By default, the pinpoint collector service is of type LoadBalancer, but since we don't need to access it from outside of the cluster, we'll change it to type ClusterIp
+				- cd pinpoint-collector
+				- change value of the service type to "ClusterIp"
+					- https://github.com/pinpoint-apm/pinpoint-kubernetes/blob/73a5025596d18bd9f5c69bcf1b2227aeb93a54e6/pinpoint/charts/pinpoint-collector/values.yaml#L26
+			- Aside from that the default configurations should be fine
+			- navigate back to the pinpoint base directory
+				- cd ../..
+			- run:
+				- helm dependency update .
+				- helm install pinpoint .
+			- You should now have Pinpoint deployed to your cluster
+	- Update configuration for pinpoint Java Agent
+		- go to https://github.com/pinpoint-apm/pinpoint/releases/tag/v2.3.3 and download pinpoint-agent-2.3.3.tar.gz
+			- using 7-zip you should be able to navigate into the zipped file
+				- find the pinpoint-root.config and copy it into the base level of your application (ie: same level as Dockerfile)
+		- edit the file (in this demo we renamed it to pinpoint.config)
+			- profiler.transport.grpc.collector.ip=[name of pinpoint collector service in the cluster, ie: pinpoint-pinpoint-collector.default.svc.cluster.local]
+				- we are passing the pinpoint collector service name for k8s to resolve	
+			- profiler.server.realipheader=X-Forwarded-For
+				- persist original IP address header
+	- Update Dockerfile
+		- configuring the Java Agent
+		- example found in our repository: 
+			- https://github.com/030722-VA-SRE/notes/blob/main/week7/pipeline-demo/Dockerfile	
+	- Example K8s manifest files found in same project
+		- https://github.com/030722-VA-SRE/notes/tree/main/week7/pipeline-demo/manifests
+	- Once your deployment is running, you can check the pinpoint ui at localhost:8080
