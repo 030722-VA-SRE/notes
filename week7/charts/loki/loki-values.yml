@@ -1,0 +1,6 @@
+persistence:
+  enabled: true
+  existingClaim: loki-pvc
+  finalizers:
+  - kubernetes.io/pvc-protection
+  type: pvc

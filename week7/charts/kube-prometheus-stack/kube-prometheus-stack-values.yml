@@ -1,0 +1,42 @@
+grafana:
+  enabled: true
+  grafana.ini:
+    server:
+      root_url: http://localhost/grafana
+  persistence:
+    enabled: true
+    existingClaim: prom-grafana
+    finalizers:
+    - kubernetes.io/pvc-protection
+    type: pvc
+  sidecar:
+    datasources:
+      enabled: true
+prometheus:
+  prometheusSpec:
+    serviceMonitorNamespaceSelector: {}
+    serviceMonitorSelector: {}
+    serviceMonitorSelectorNilUsesHelmValues: false
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          resources:
+            requests:
+              storage: 20Gi
+          storageClassName: gp2
+    retention: 12h
+    resources:
+      limits:
+        cpu: 500m
+        memory: 2048Mi
+
+alertmanager:
+  alertmanagerSpec:
+    retention: 1h
+    resources:
+      requests:
+        cpu: 10m
+        memory: 64Mi
+      limits:
+        cpu: 50m
+        memory: 256Mi
