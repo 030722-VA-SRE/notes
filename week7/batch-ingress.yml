@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: batch-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/user-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/grafana/?(.*)"
+        backend:
+          service:
+            name: prom-grafana
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/prometheus/?(.*)" # need to change prometheus root url
+        backend:
+          service:
+            name: prom-kube-prometheus-stack-prometheus
+            port: 
+              number: 9090
+      - pathType: Prefix
+        path: "/alert-manager/?(.*)"
+        backend:
+          service:
+            name: prom-kube-prometheus-stack-alertmanager
+            port:
+              number: 9093
